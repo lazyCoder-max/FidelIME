@@ -5,6 +5,7 @@ using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
+using FidelIME.InputManager.Interfaces;
 
 namespace FidelIME
 {

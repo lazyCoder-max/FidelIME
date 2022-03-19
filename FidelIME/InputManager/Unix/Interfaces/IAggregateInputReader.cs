@@ -1,4 +1,4 @@
-namespace FidelIME.InputManager.Unix;
+namespace FidelIME.InputManager.Unix.Interfaces;
 
 public interface IAggregateInputReader
 {

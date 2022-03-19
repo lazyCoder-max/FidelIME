@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using FidelIME.InputManager.Unix.Interfaces;
 
 namespace FidelIME.InputManager.Unix;
 

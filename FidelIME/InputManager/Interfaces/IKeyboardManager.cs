@@ -1,5 +1,5 @@
 using System;
-
+namespace FidelIME.InputManager.Interfaces;
 public interface IKeyboardManager
 {
     /// <summary>

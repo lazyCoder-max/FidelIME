@@ -1,4 +1,4 @@
-namespace FidelIME.IME;
+namespace FidelIME.IME.Interfaces;
 
 public interface IInputMethodControl
 {

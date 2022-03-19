@@ -1,3 +1,4 @@
+using FidelIME.IME.Interfaces;
 using FidelIME.IME.Models;
 
 namespace FidelIME.IME;

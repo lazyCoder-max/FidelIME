@@ -1,5 +1,7 @@
 using System;
+using FidelIME.InputManager.Interfaces;
 using FidelIME.InputManager.Unix;
+using FidelIME.InputManager.Unix.Interfaces;
 
 namespace FidelIME.InputManager
 {
