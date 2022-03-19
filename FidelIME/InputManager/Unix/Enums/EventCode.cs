@@ -1,4 +1,4 @@
-namespace FidelIME.Enums;
+namespace FidelIME.InputManager.Unix.Enums;
 
 /// <summary>
 /// Mapping for this can be found here: https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h

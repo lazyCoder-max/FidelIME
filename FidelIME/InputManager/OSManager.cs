@@ -29,6 +29,6 @@ public class OSManager : IOSManager
              
         }
 
-        return null;
+        return unixInputReader;
     }
 }

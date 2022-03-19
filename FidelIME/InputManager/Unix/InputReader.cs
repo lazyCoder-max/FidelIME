@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using FidelIME.Enums;
+using FidelIME.InputManager.Unix.Enums;
 
 namespace FidelIME.InputManager.Unix;
 

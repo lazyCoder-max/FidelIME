@@ -1,5 +1,5 @@
 using System;
-using FidelIME.Enums;
+using FidelIME.InputManager.Unix.Enums;
 
 namespace FidelIME.InputManager.Unix;
 

@@ -1,4 +1,4 @@
-namespace FidelIME.Enums;
+namespace FidelIME.InputManager.Unix.Enums;
 
 public enum EventType
 {
