@@ -1,0 +1,11 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="FidelIME.MainWindow"
+        Title="Fidel IME" Height="82" Width="771.21" CanResize="False" Topmost="True" Background="#FF313131">
+    <Grid>
+        <Image x:Name="FidelChangeBtn" Margin="4,0,0,6" Height="70" Width="71" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+              PointerPressed="FidelChangeBtn_OnPointerPressed" />
+    </Grid>
+</Window>
