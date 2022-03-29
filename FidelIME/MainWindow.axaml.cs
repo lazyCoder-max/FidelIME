@@ -1,18 +1,16 @@
-using System;
-using System.IO;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
-using Avalonia.Media;
 using Avalonia.Media.Imaging;
-using FidelIME.InputManager.Interfaces;
+using FidelIME.Plugin.InputManager;
+using System.IO;
 
 namespace FidelIME
 {
     public partial class MainWindow : Window
     {
         private static bool IsAmharic = false;
-        private IKeyboardManager keyboard = new InputManager.KeyboardManager();
+        private Plugin.InputManager.Interfaces.IKeyboardManager keyboard = new KeyboardManager();
         public MainWindow()
         {
             InitializeComponent();

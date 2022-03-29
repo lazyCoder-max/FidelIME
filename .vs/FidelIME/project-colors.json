@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "1ac11c19-b60c-4cc1-a011-55c1a3c9fb1f": {
+      "ProjectGuid": "1ac11c19-b60c-4cc1-a011-55c1a3c9fb1f",
+      "DisplayName": "FidelIME.Plugin",
+      "ColorIndex": 0
+    },
+    "f413f566-36b3-4338-bf21-8be56bda3a72": {
+      "ProjectGuid": "f413f566-36b3-4338-bf21-8be56bda3a72",
+      "DisplayName": "FidelIME",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

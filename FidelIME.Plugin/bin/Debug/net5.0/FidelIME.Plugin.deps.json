@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "FidelIME.Plugin/1.0.0": {
+        "runtime": {
+          "FidelIME.Plugin.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FidelIME.Plugin/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

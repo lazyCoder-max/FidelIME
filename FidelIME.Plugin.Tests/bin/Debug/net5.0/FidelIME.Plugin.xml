@@ -1,0 +1,510 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FidelIME.Plugin</name>
+    </assembly>
+    <members>
+        <member name="T:FidelIME.Plugin.IME.Enum.Syllables">
+            <summary>
+            Ethiopic Letters ie: ሀ, ሁ, ሂ, ሃ, ሄ, ህ, ሆ
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሀ">
+            <summary>
+            ha
+            </summary> 
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሁ">
+            <summary>
+            hu
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሂ">
+            <summary>
+            hi
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሃ">
+            <summary>
+            ha
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሄ">
+            <summary>
+            hie
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ህ">
+            <summary>
+            h
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሆ">
+            <summary>
+            ho
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ለ">
+            <summary>
+            le
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሉ">
+            <summary>
+            lu
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሊ">
+            <summary>
+            li
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ላ">
+            <summary>
+            la
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሌ">
+            <summary>
+            lie
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ል">
+            <summary>
+            l
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሎ">
+            <summary>
+            lo
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሐ">
+            <summary>
+            Ha
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሑ">
+            <summary>
+            Hu
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሒ">
+            <summary>
+            Hi
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሓ">
+            <summary>
+            Ha
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሔ">
+            <summary>
+            Hie
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሕ">
+            <summary>
+            H
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሖ">
+            <summary>
+            Ho
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.መ">
+            <summary>
+            me
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሙ">
+            <summary>
+            mu
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሚ">
+            <summary>
+            mi
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ማ">
+            <summary>
+            ma
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሜ">
+            <summary>
+            mie
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ም">
+            <summary>
+            m
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሞ">
+            <summary>
+            mo
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሠ">
+            <summary>
+            se
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሡ">
+            <summary>
+            su
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሢ">
+            <summary>
+            si
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሣ">
+            <summary>
+            sa
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሤ">
+            <summary>
+            sie
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሥ">
+            <summary>
+            s
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሦ">
+            <summary>
+            so
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ረ">
+            <summary>
+            re
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሩ">
+            <summary>
+            ru
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሪ">
+            <summary>
+            ri
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ራ">
+            <summary>
+            ra
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሬ">
+            <summary>
+            rie
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ር">
+            <summary>
+            r
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሮ">
+            <summary>
+            ro
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሰ">
+            <summary>
+            se
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሱ">
+            <summary>
+            su
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሲ">
+            <summary>
+            si
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሳ">
+            <summary>
+            sa
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሴ">
+            <summary>
+            sie
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ስ">
+            <summary>
+            s
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሶ">
+            <summary>
+            so
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሸ">
+            <summary>
+            she
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሹ">
+            <summary>
+            shu
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሺ">
+            <summary>
+            shi
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሻ">
+            <summary>
+            sha
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሼ">
+            <summary>
+            shie
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሽ">
+            <summary>
+            sh
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ሾ">
+            <summary>
+            sho
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ቀ">
+            <summary>
+            qe
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ቁ">
+            <summary>
+            qu
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ቂ">
+            <summary>
+            qi
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ቃ">
+            <summary>
+            qa
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ቄ">
+            <summary>
+            qie
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ቅ">
+            <summary>
+            q
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.IME.Enum.Syllables.ቆ">
+            <summary>
+            qo
+            </summary>
+        </member>
+        <member name="T:FidelIME.Plugin.IME.InputEditor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FidelIME.Plugin.IME.InputEditor.InputCharacter">
+            <summary>
+            Get and set input Character
+            </summary>
+        </member>
+        <member name="P:FidelIME.Plugin.IME.InputEditor.IsFirstCharacter">
+            <summary>
+            Check if the character counter is on the first index
+            </summary>
+        </member>
+        <member name="T:FidelIME.Plugin.IME.Interfaces.IInputEditor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FidelIME.Plugin.IME.Interfaces.IInputEditor.IsFirstCharacter">
+            <summary>
+            Check if the character counter is on the first index
+            </summary>
+        </member>
+        <member name="T:FidelIME.Plugin.IME.Interfaces.IInputMethodControl">
+            <summary>
+            Input Method Controls
+            </summary>
+        </member>
+        <member name="M:FidelIME.Plugin.IME.Interfaces.IInputMethodControl.ToEthiopic(System.String)">
+            <summary>
+            Convert character to Ethiopic value
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FidelIME.Plugin.IME.MarksControl">
+            <summary>
+            Provides Ethiopic Input marks ie: ፥ ። ፣
+            </summary>
+        </member>
+        <member name="T:FidelIME.Plugin.IME.NumberContol">
+            <summary>
+            Provides Ethiopic Numbers 
+            </summary>
+        </member>
+        <member name="T:FidelIME.Plugin.IME.SyllableControl">
+            <summary>
+            Provides Syllable Control of Ethiopic Letters
+            </summary>
+        </member>
+        <member name="M:FidelIME.Plugin.IME.SyllableControl.#ctor(FidelIME.Plugin.IME.InputEditor)">
+            <summary>
+            Constractor
+            </summary>
+            <param name="editor"></param>
+        </member>
+        <member name="M:FidelIME.Plugin.IME.SyllableControl.IsVowel(System.String)">
+            <summary>
+            check if input value is vowel
+            </summary>
+            <param name="value"></param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="M:FidelIME.Plugin.IME.SyllableControl.GetVowelValue(System.String)">
+            <summary>
+            Returns Ethiopic vowel value
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FidelIME.Plugin.IME.SyllableControl.ToEthiopic(System.String)">
+            <summary>
+            Convert character to Ethiopic value
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FidelIME.Plugin.InputManager.Interfaces.IKeyboardManager.StartKeyboardListener">
+            <summary>
+            Starts Listening keyboard input
+            </summary>
+        </member>
+        <member name="M:FidelIME.Plugin.InputManager.Interfaces.IKeyboardManager.DisposeKeyboardListener">
+            <summary>
+            Stop Listening keyboard input
+            </summary>
+        </member>
+        <member name="T:FidelIME.Plugin.InputManager.Unix.Enums.EventCode">
+            <summary>
+            Mapping for this can be found here: https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_SYN">
+            <summary>
+            Used as markers to separate events. Events may be separated in time or in space, such as with the multitouch protocol.
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_KEY">
+            <summary>
+            Used to describe state changes of keyboards, buttons, or other key-like devices.
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_REL">
+            <summary>
+            Used to describe relative axis value changes, e.g. moving the mouse 5 units to the left.
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_ABS">
+            <summary>
+            Used to describe absolute axis value changes, e.g. describing the coordinates of a touch on a touchscreen.
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_MSC">
+            <summary>
+            Used to describe miscellaneous input data that do not fit into other types.
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_SW">
+            <summary>
+            Used to describe binary state input switches.
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_LED">
+            <summary>
+            Used to turn LEDs on devices on and off.
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_SND">
+            <summary>
+            Used to output sound to devices.
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_REP">
+            <summary>
+            Used for autorepeating devices.
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_FF">
+            <summary>
+            Used to send force feedback commands to an input device.
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_PWR">
+            <summary>
+            A special type for power button and switch input.
+            </summary>
+        </member>
+        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_FF_STATUS">
+            <summary>
+            Used to receive force feedback device status.
+            </summary>
+        </member>
+        <member name="T:FidelIME.Plugin.InputManager.Unix.Enums.MouseAxis">
+            <summary>
+            Mouse Axis i.e: <seealso cref="F:FidelIME.Plugin.InputManager.Unix.Enums.MouseAxis.X"/>, <seealso cref="F:FidelIME.Plugin.InputManager.Unix.Enums.MouseAxis.Y"/>
+            </summary>
+        </member>
+        <member name="T:FidelIME.Plugin.InputManager.Unix.MouseMoveEvent">
+            <summary>
+            Event controller for Mouse activity
+            </summary>
+        </member>
+        <member name="M:FidelIME.Plugin.InputManager.Unix.MouseMoveEvent.#ctor(FidelIME.Plugin.InputManager.Unix.Enums.MouseAxis,System.Int32)">
+            <summary>
+            Constractor Method
+            </summary>
+            <param name="axis"></param>
+            <param name="amount"></param>
+            
+        </member>
+        <member name="P:FidelIME.Plugin.InputManager.Unix.MouseMoveEvent.Axis">
+            <summary>
+            Returns Mouse Axis
+            </summary>
+        </member>
+        <member name="P:FidelIME.Plugin.InputManager.Unix.MouseMoveEvent.Amount">
+            <summary>
+            Get and Set Mouse Position
+            </summary>
+        </member>
+    </members>
+</doc>

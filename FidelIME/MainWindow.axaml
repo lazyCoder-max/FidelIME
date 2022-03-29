@@ -5,7 +5,6 @@
         x:Class="FidelIME.MainWindow"
         Title="Fidel IME" Height="82" Width="771.21" CanResize="False" Topmost="True" Background="#FF313131">
     <Grid>
-        <Image x:Name="FidelChangeBtn" Margin="4,0,0,6" Height="70" Width="71" VerticalAlignment="Bottom" HorizontalAlignment="Left"
-              PointerPressed="FidelChangeBtn_OnPointerPressed" />
+        <Image x:Name="FidelChangeBtn" Margin="4,0,0,6" Height="70" Width="71" VerticalAlignment="Bottom" HorizontalAlignment="Left" PointerPressed="FidelChangeBtn_OnPointerPressed"/>
     </Grid>
 </Window>

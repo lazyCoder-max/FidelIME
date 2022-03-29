@@ -1,6 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FidelIME", "FidelIME\FidelIME.csproj", "{F413F566-36B3-4338-BF21-8BE56BDA3A72}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FidelIME", "FidelIME\FidelIME.csproj", "{F413F566-36B3-4338-BF21-8BE56BDA3A72}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FidelIME.Plugin", "FidelIME.Plugin\FidelIME.Plugin.csproj", "{1AC11C19-B60C-4CC1-A011-55C1A3C9FB1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FidelIME.Plugin.Tests", "FidelIME.Plugin.Tests\FidelIME.Plugin.Tests.csproj", "{78BE5D23-6343-4141-993B-940943D732C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +19,19 @@ Global
 		{F413F566-36B3-4338-BF21-8BE56BDA3A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F413F566-36B3-4338-BF21-8BE56BDA3A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F413F566-36B3-4338-BF21-8BE56BDA3A72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AC11C19-B60C-4CC1-A011-55C1A3C9FB1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AC11C19-B60C-4CC1-A011-55C1A3C9FB1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AC11C19-B60C-4CC1-A011-55C1A3C9FB1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AC11C19-B60C-4CC1-A011-55C1A3C9FB1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78BE5D23-6343-4141-993B-940943D732C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78BE5D23-6343-4141-993B-940943D732C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78BE5D23-6343-4141-993B-940943D732C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78BE5D23-6343-4141-993B-940943D732C4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A37BDD56-5756-4204-8B37-DF7ADCB54AE8}
 	EndGlobalSection
 EndGlobal
