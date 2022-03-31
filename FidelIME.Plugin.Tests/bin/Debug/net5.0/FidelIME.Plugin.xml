@@ -396,6 +396,13 @@
             <param name="value"></param>
             <returns></returns>
         </member>
+        <member name="M:FidelIME.Plugin.IME.SyllableControl.GetSyllable(System.String)">
+            <summary>
+            Returns Ethiopic syllables
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
         <member name="M:FidelIME.Plugin.IME.SyllableControl.ToEthiopic(System.String)">
             <summary>
             Convert character to Ethiopic value
@@ -411,6 +418,26 @@
         <member name="M:FidelIME.Plugin.InputManager.Interfaces.IKeyboardManager.DisposeKeyboardListener">
             <summary>
             Stop Listening keyboard input
+            </summary>
+        </member>
+        <member name="T:FidelIME.Plugin.InputManager.Interfaces.IOSManager">
+            <summary>
+            Interface class for <see cref="T:FidelIME.Plugin.InputManager.OSManager"/>
+            </summary>
+        </member>
+        <member name="P:FidelIME.Plugin.InputManager.Interfaces.IOSManager.GetListener">
+            <summary>
+            Get Input Listener value for the specified opreating system
+            </summary>
+        </member>
+        <member name="T:FidelIME.Plugin.InputManager.OSManager">
+            <summary>
+            Determine Opreating System and Set Controller for the OS
+            </summary>
+        </member>
+        <member name="P:FidelIME.Plugin.InputManager.OSManager.GetListener">
+            <summary>
+            Get Input Listener value for the specified opreating system
             </summary>
         </member>
         <member name="T:FidelIME.Plugin.InputManager.Unix.Enums.EventCode">
