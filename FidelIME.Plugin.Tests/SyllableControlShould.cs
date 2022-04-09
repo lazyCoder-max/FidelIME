@@ -7,17 +7,20 @@ namespace FidelIME.Plugin.Tests
     [TestFixture]
     public class SyllableControlShould
     {
-        [TestCase("a", ExpectedResult = "ኣ")]
-        [TestCase("u", ExpectedResult = "ኡ")]
-        [TestCase("U", ExpectedResult = "ኡ")]
-        [TestCase("i", ExpectedResult = "ኢ")]
-        [TestCase("I", ExpectedResult = "ኢ")]
-        [TestCase("A", ExpectedResult = "እ")]
-        [TestCase("o", ExpectedResult = "ኦ")]
-        [TestCase("e", ExpectedResult = "አ")]
-        [TestCase("E", ExpectedResult = "አ")]
+        [TestCase(arg: new string[] { "a", "b" }, ExpectedResult = "ኣብ")]
+        [TestCase(arg: new string[] { "se", "la", "m" }, ExpectedResult = "ሰላም")]
+        [TestCase(arg: new string[] { "selamta" }, ExpectedResult = "ሰላምታ")]
+        [TestCase(arg: new string[] { "gemena" }, ExpectedResult = "ገመና")]
+        [TestCase(arg: new string[] { "qdus" }, ExpectedResult = "ቅዱስ")]
+        [TestCase(arg: new string[] { "zebider" }, ExpectedResult = "ዘቢደር")]
+        [TestCase(arg: new string[] { "gemecis" }, ExpectedResult = "ገመቺስ")]
+        [TestCase(arg: new string[] { "quanqua" }, ExpectedResult = "ቋንቋ")]
+        [TestCase(arg: new string[] { "betamdesblognal" }, ExpectedResult = "በታምደስብሎግናል")]
+        [TestCase(arg: new string[] { "fw" }, ExpectedResult = "ᎈ")]
+        [TestCase(arg: new string[] { "mwie" }, ExpectedResult = "ᎂ")]
+        // check if the second
         [Test]
-        public string Return_Value_ToEthiopic(string value)
+        public string Return_Value_ToEthiopic(string[] value)
         {
             ISyllableControl syllableControl = new SyllableControl(new InputEditor());
             var result = syllableControl.ToEthiopic(value);

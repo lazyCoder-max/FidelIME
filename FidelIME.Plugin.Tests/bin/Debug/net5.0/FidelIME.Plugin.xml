@@ -382,14 +382,14 @@
             </summary>
             <param name="editor"></param>
         </member>
-        <member name="M:FidelIME.Plugin.IME.SyllableControl.IsVowel(System.String)">
+        <member name="M:FidelIME.Plugin.IME.SyllableControl.IsVowel(System.Char)">
             <summary>
             check if input value is vowel
             </summary>
             <param name="value"></param>
             <returns><see cref="T:System.Boolean"/></returns>
         </member>
-        <member name="M:FidelIME.Plugin.IME.SyllableControl.GetVowelValue(System.String)">
+        <member name="M:FidelIME.Plugin.IME.SyllableControl.GetEthiopicVowel(System.String)">
             <summary>
             Returns Ethiopic vowel value
             </summary>
@@ -403,11 +403,24 @@
             <param name="value"></param>
             <returns></returns>
         </member>
+        <member name="M:FidelIME.Plugin.IME.SyllableControl.ToEthiopic(System.String[])">
+            <summary>
+            Convert character to Ethiopic value
+            </summary>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
         <member name="M:FidelIME.Plugin.IME.SyllableControl.ToEthiopic(System.String)">
             <summary>
             Convert character to Ethiopic value
             </summary>
             <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FidelIME.Plugin.IME.SyllableControl.ConvertInput(System.String)">
+            <summary>
+            This method prepares string value for conversion
+            </summary>
             <returns></returns>
         </member>
         <member name="M:FidelIME.Plugin.InputManager.Interfaces.IKeyboardManager.StartKeyboardListener">
