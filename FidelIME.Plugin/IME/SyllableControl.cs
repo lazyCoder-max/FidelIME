@@ -1,5 +1,7 @@
 using FidelIME.Plugin.IME.Enum;
 using FidelIME.Plugin.IME.Interfaces;
+using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 
 namespace FidelIME.Plugin.IME
 {
@@ -9,6 +11,7 @@ namespace FidelIME.Plugin.IME
     public class SyllableControl : ISyllableControl
     {
         private IInputEditor _inputEditor;
+
 
         /// <summary>
         /// Constractor
@@ -23,9 +26,9 @@ namespace FidelIME.Plugin.IME
         /// </summary>
         /// <param name="value"></param>
         /// <returns><see cref="bool"/></returns>
-        private bool IsVowel(string value)
+        private bool IsVowel(char value)
         {
-            if (value == "a" || value == "A" || value == "E" || value == "e" || value == "i" || value == "I" || value == "o" || value == "O" || value == "U" || value == "u")
+            if (value == 'a' || value == 'A' || value == 'E' || value == 'e' || value == 'i' || value == 'I' || value == 'o' || value == 'O' || value == 'U' || value == 'u')
                 return true;
             return false;
         }
@@ -34,7 +37,7 @@ namespace FidelIME.Plugin.IME
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        private string? GetVowelValue(string value)
+        private string? GetEthiopicVowel(string value)
         {
             switch (value)
             {
@@ -89,7 +92,7 @@ namespace FidelIME.Plugin.IME
                 case "hie":
                     result = $"{Syllables.ሄ}";
                     break;
-                case "ህ":
+                case "h":
                     result = $"{Syllables.ህ}";
                     break;
                 case "ho":
@@ -112,6 +115,9 @@ namespace FidelIME.Plugin.IME
                     break;
                 case "l":
                     result = $"{Syllables.ል}";
+                    break;
+                case "lo":
+                    result = $"{Syllables.ሎ}";
                     break;
                 case "He":
                     result = $"{Syllables.ሐ}";
@@ -1043,28 +1049,86 @@ namespace FidelIME.Plugin.IME
         /// <summary>
         /// Convert character to Ethiopic value
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="values"></param>
         /// <returns></returns>
-        public string? ToEthiopic(string value)
+        public string ToEthiopic(string[] values)
         {
-            string? result = null;
-            if (_inputEditor.IsFirstCharacter)
+            Contract.Requires(values != null);
+            Contract.Requires(values.Length <= 5);
+            string result = null;
+            foreach (var value in values)
             {
-                if (IsVowel(value))
+                var formatedValues = ConvertInput(value);
+                foreach (var formatedValue in formatedValues)
                 {
-                    result = GetVowelValue(value);
+                    result += GetEthiopic(formatedValue);
                 }
-                else
-                {
-
-                }
-            }
-            else
-            {
 
             }
+
             return result;
         }
+        /// <summary>
+        /// Convert character to Ethiopic value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public string ToEthiopic(string value)
+        {
+            var values = ConvertInput(value);
+            string result = null;
+            foreach (var val in values)
+            {
+                result += GetEthiopic(value);
+            }
 
+            return result;
+        }
+        /// <summary>
+        /// This method prepares string value for conversion
+        /// </summary>
+        /// <returns></returns>
+        public string[] ConvertInput(string value)
+        {
+            List<string> result = new();
+            int i = 0;
+            while (i != value.Length)
+            {
+                string syllable = "";
+                while (IsVowel(value[i]) || value[i] == 'w' || value[i] == '2' || i == 0 || i > value.Length)
+                {
+                    syllable += $"{value[i]}";
+                    i++;
+                    if (i == value.Length)
+                        break;
+                }
+                syllable = syllable.Length == 0 ? $"{value[i]}" : syllable;
+                value = value.Remove(0, i);
+                i = 0;
+                result.Add($"{syllable}");
+            }
+            return result.ToArray();
+        }
+        private string GetEthiopic(string value)
+        {
+            string result = null;
+            result += IsVowel(value[0]) ? GetEthiopicVowel(value) : GetSyllable(value);
+
+            return result;
+        }
+        /// <summary>
+        /// Convert string to Character code
+        /// </summary>
+        /// <param name="utf8String"></param>
+        /// <returns></returns>
+        public string GetCharacterValue(string utf8String)
+        {
+            string characters = "";
+            for (int i = 0; i < utf8String.Length; i++)
+            {
+                characters += $"{(int)utf8String[i]:x4}";
+            }
+            return characters;
+        }
     }
 }

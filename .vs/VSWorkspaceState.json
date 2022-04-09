@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\FidelIME"
+    "\\FidelIME.Plugin",
+    "\\FidelIME.Plugin\\InputManager"
   ],
   "SelectedNode": "\\FidelIME.sln",
   "PreviewInSolutionExplorer": false

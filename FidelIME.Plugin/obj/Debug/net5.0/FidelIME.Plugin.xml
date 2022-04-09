@@ -361,6 +361,27 @@
             <param name="value"></param>
             <returns></returns>
         </member>
+        <member name="M:FidelIME.Plugin.IME.Interfaces.ISyllableControl.ToEthiopic(System.String[])">
+            <summary>
+            Convert character to Ethiopic value
+            </summary>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FidelIME.Plugin.IME.Interfaces.ISyllableControl.ToEthiopic(System.String)">
+            <summary>
+            Convert character to Ethiopic value
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FidelIME.Plugin.IME.Interfaces.ISyllableControl.GetCharacterValue(System.String)">
+            <summary>
+            Convert string to UTF-16
+            </summary>
+            <param name="utf8String"></param>
+            <returns></returns>
+        </member>
         <member name="T:FidelIME.Plugin.IME.MarksControl">
             <summary>
             Provides Ethiopic Input marks ie: ፥ ። ፣
@@ -382,14 +403,14 @@
             </summary>
             <param name="editor"></param>
         </member>
-        <member name="M:FidelIME.Plugin.IME.SyllableControl.IsVowel(System.String)">
+        <member name="M:FidelIME.Plugin.IME.SyllableControl.IsVowel(System.Char)">
             <summary>
             check if input value is vowel
             </summary>
             <param name="value"></param>
             <returns><see cref="T:System.Boolean"/></returns>
         </member>
-        <member name="M:FidelIME.Plugin.IME.SyllableControl.GetVowelValue(System.String)">
+        <member name="M:FidelIME.Plugin.IME.SyllableControl.GetEthiopicVowel(System.String)">
             <summary>
             Returns Ethiopic vowel value
             </summary>
@@ -403,6 +424,13 @@
             <param name="value"></param>
             <returns></returns>
         </member>
+        <member name="M:FidelIME.Plugin.IME.SyllableControl.ToEthiopic(System.String[])">
+            <summary>
+            Convert character to Ethiopic value
+            </summary>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
         <member name="M:FidelIME.Plugin.IME.SyllableControl.ToEthiopic(System.String)">
             <summary>
             Convert character to Ethiopic value
@@ -410,127 +438,27 @@
             <param name="value"></param>
             <returns></returns>
         </member>
-        <member name="M:FidelIME.Plugin.InputManager.Interfaces.IKeyboardManager.StartKeyboardListener">
+        <member name="M:FidelIME.Plugin.IME.SyllableControl.ConvertInput(System.String)">
             <summary>
-            Starts Listening keyboard input
+            This method prepares string value for conversion
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FidelIME.Plugin.IME.SyllableControl.GetCharacterValue(System.String)">
+            <summary>
+            Convert string to Character code
+            </summary>
+            <param name="utf8String"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FidelIME.Plugin.InputManager.KeyboardManager.StartHook">
+            <summary>
+            Start Keyboard Hook
             </summary>
         </member>
-        <member name="M:FidelIME.Plugin.InputManager.Interfaces.IKeyboardManager.DisposeKeyboardListener">
+        <member name="M:FidelIME.Plugin.InputManager.KeyboardManager.StopHook">
             <summary>
-            Stop Listening keyboard input
-            </summary>
-        </member>
-        <member name="T:FidelIME.Plugin.InputManager.Interfaces.IOSManager">
-            <summary>
-            Interface class for <see cref="T:FidelIME.Plugin.InputManager.OSManager"/>
-            </summary>
-        </member>
-        <member name="P:FidelIME.Plugin.InputManager.Interfaces.IOSManager.GetListener">
-            <summary>
-            Get Input Listener value for the specified opreating system
-            </summary>
-        </member>
-        <member name="T:FidelIME.Plugin.InputManager.OSManager">
-            <summary>
-            Determine Opreating System and Set Controller for the OS
-            </summary>
-        </member>
-        <member name="P:FidelIME.Plugin.InputManager.OSManager.GetListener">
-            <summary>
-            Get Input Listener value for the specified opreating system
-            </summary>
-        </member>
-        <member name="T:FidelIME.Plugin.InputManager.Unix.Enums.EventCode">
-            <summary>
-            Mapping for this can be found here: https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h
-            </summary>
-        </member>
-        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_SYN">
-            <summary>
-            Used as markers to separate events. Events may be separated in time or in space, such as with the multitouch protocol.
-            </summary>
-        </member>
-        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_KEY">
-            <summary>
-            Used to describe state changes of keyboards, buttons, or other key-like devices.
-            </summary>
-        </member>
-        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_REL">
-            <summary>
-            Used to describe relative axis value changes, e.g. moving the mouse 5 units to the left.
-            </summary>
-        </member>
-        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_ABS">
-            <summary>
-            Used to describe absolute axis value changes, e.g. describing the coordinates of a touch on a touchscreen.
-            </summary>
-        </member>
-        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_MSC">
-            <summary>
-            Used to describe miscellaneous input data that do not fit into other types.
-            </summary>
-        </member>
-        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_SW">
-            <summary>
-            Used to describe binary state input switches.
-            </summary>
-        </member>
-        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_LED">
-            <summary>
-            Used to turn LEDs on devices on and off.
-            </summary>
-        </member>
-        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_SND">
-            <summary>
-            Used to output sound to devices.
-            </summary>
-        </member>
-        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_REP">
-            <summary>
-            Used for autorepeating devices.
-            </summary>
-        </member>
-        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_FF">
-            <summary>
-            Used to send force feedback commands to an input device.
-            </summary>
-        </member>
-        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_PWR">
-            <summary>
-            A special type for power button and switch input.
-            </summary>
-        </member>
-        <member name="F:FidelIME.Plugin.InputManager.Unix.Enums.EventType.EV_FF_STATUS">
-            <summary>
-            Used to receive force feedback device status.
-            </summary>
-        </member>
-        <member name="T:FidelIME.Plugin.InputManager.Unix.Enums.MouseAxis">
-            <summary>
-            Mouse Axis i.e: <seealso cref="F:FidelIME.Plugin.InputManager.Unix.Enums.MouseAxis.X"/>, <seealso cref="F:FidelIME.Plugin.InputManager.Unix.Enums.MouseAxis.Y"/>
-            </summary>
-        </member>
-        <member name="T:FidelIME.Plugin.InputManager.Unix.MouseMoveEvent">
-            <summary>
-            Event controller for Mouse activity
-            </summary>
-        </member>
-        <member name="M:FidelIME.Plugin.InputManager.Unix.MouseMoveEvent.#ctor(FidelIME.Plugin.InputManager.Unix.Enums.MouseAxis,System.Int32)">
-            <summary>
-            Constractor Method
-            </summary>
-            <param name="axis"></param>
-            <param name="amount"></param>
-            
-        </member>
-        <member name="P:FidelIME.Plugin.InputManager.Unix.MouseMoveEvent.Axis">
-            <summary>
-            Returns Mouse Axis
-            </summary>
-        </member>
-        <member name="P:FidelIME.Plugin.InputManager.Unix.MouseMoveEvent.Amount">
-            <summary>
-            Get and Set Mouse Position
+            Dispose Keyboard Hook
             </summary>
         </member>
     </members>
