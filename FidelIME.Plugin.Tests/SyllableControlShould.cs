@@ -1,4 +1,5 @@
 ﻿using FidelIME.Plugin.IME;
+using FidelIME.Plugin.IME.Interfaces;
 using NUnit.Framework;
 
 namespace FidelIME.Plugin.Tests
@@ -18,8 +19,16 @@ namespace FidelIME.Plugin.Tests
         [Test]
         public string Return_Value_ToEthiopic(string value)
         {
-            SyllableControl syllableControl = new SyllableControl(new InputEditor());
+            ISyllableControl syllableControl = new SyllableControl(new InputEditor());
             var result = syllableControl.ToEthiopic(value);
+            return result;
+        }
+        [TestCase("ha", ExpectedResult = "ሃ")]
+        [Test]
+        public string Return_EthiopicSyllable_When_GetSyllable_Invoked(string value)
+        {
+            ISyllableControl syllableControl = new SyllableControl(new InputEditor());
+            var result = syllableControl.GetSyllable(value);
             return result;
         }
     }
