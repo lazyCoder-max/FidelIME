@@ -4192,11 +4192,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kidus\\Source\\Repos\\FidelIME\\FidelIME.Plugin.Tests\\FidelIME.Plugin.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\kidus\\source\\repos\\FidelIME\\FidelIME.Plugin.Tests\\FidelIME.Plugin.Tests.csproj",
       "projectName": "FidelIME.Plugin.Tests",
-      "projectPath": "C:\\Users\\kidus\\Source\\Repos\\FidelIME\\FidelIME.Plugin.Tests\\FidelIME.Plugin.Tests.csproj",
+      "projectPath": "C:\\Users\\kidus\\source\\repos\\FidelIME\\FidelIME.Plugin.Tests\\FidelIME.Plugin.Tests.csproj",
       "packagesPath": "C:\\Users\\kidus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kidus\\Source\\Repos\\FidelIME\\FidelIME.Plugin.Tests\\obj\\",
+      "outputPath": "C:\\Users\\kidus\\source\\repos\\FidelIME\\FidelIME.Plugin.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -4219,8 +4219,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\kidus\\Source\\Repos\\FidelIME\\FidelIME.Plugin\\FidelIME.Plugin.csproj": {
-              "projectPath": "C:\\Users\\kidus\\Source\\Repos\\FidelIME\\FidelIME.Plugin\\FidelIME.Plugin.csproj"
+            "C:\\Users\\kidus\\source\\repos\\FidelIME\\FidelIME.Plugin\\FidelIME.Plugin.csproj": {
+              "projectPath": "C:\\Users\\kidus\\source\\repos\\FidelIME\\FidelIME.Plugin\\FidelIME.Plugin.csproj"
             }
           }
         }
@@ -4267,7 +4267,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

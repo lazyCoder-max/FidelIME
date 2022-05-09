@@ -1,0 +1,16 @@
+C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\bin\Release\net5.0\osx.os
+C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\bin\Release\net5.0\x11.os
+C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\bin\Release\net5.0\FidelIME.Plugin.deps.json
+C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\bin\Release\net5.0\FidelIME.Plugin.dll
+C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\bin\Release\net5.0\FidelIME.Plugin.pdb
+C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\bin\Release\net5.0\FidelIME.Plugin.xml
+C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\obj\Release\net5.0\FidelIME.Plugin.csproj.AssemblyReference.cache
+C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\obj\Release\net5.0\FidelIME.Plugin.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\obj\Release\net5.0\FidelIME.Plugin.AssemblyInfoInputs.cache
+C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\obj\Release\net5.0\FidelIME.Plugin.AssemblyInfo.cs
+C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\obj\Release\net5.0\FidelIME.Plugin.csproj.CoreCompileInputs.cache
+C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\obj\Release\net5.0\FidelIME.Plugin.dll
+C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\obj\Release\net5.0\refint\FidelIME.Plugin.dll
+C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\obj\Release\net5.0\FidelIME.Plugin.xml
+C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\obj\Release\net5.0\FidelIME.Plugin.pdb
+C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\obj\Release\net5.0\ref\FidelIME.Plugin.dll
