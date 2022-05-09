@@ -12,3 +12,5 @@ C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\obj\Debug\net5.0\FidelIME.P
 C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\obj\Debug\net5.0\refint\FidelIME.Plugin.dll
 C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\bin\Debug\net5.0\FidelIME.Plugin.xml
 C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\obj\Debug\net5.0\FidelIME.Plugin.xml
+C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\bin\Debug\net5.0\osx.os
+C:\Users\kidus\source\repos\FidelIME\FidelIME.Plugin\bin\Debug\net5.0\x11.os
