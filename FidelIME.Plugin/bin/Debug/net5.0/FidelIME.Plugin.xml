@@ -451,6 +451,7 @@
             <param name="utf8String"></param>
             <returns></returns>
         </member>
+<<<<<<< HEAD
         <member name="T:FidelIME.Plugin.InputManager.KeyboardManager">
             <summary>
             Keyboard Manager to start and stop the Hook
@@ -463,6 +464,15 @@
         </member>
         <member name="M:FidelIME.Plugin.InputManager.KeyboardManager.StopHook">
             <summary>
+=======
+        <member name="M:FidelIME.Plugin.InputManager.KeyboardManager.StartHook">
+            <summary>
+            Start Keyboard Hook
+            </summary>
+        </member>
+        <member name="M:FidelIME.Plugin.InputManager.KeyboardManager.StopHook">
+            <summary>
+>>>>>>> 446737b8e5592812423d19197a58b7f3ffa53a3f
             Dispose Keyboard Hook
             </summary>
         </member>
