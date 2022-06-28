@@ -451,6 +451,11 @@
             <param name="utf8String"></param>
             <returns></returns>
         </member>
+        <member name="T:FidelIME.Plugin.InputManager.KeyboardManager">
+            <summary>
+            Keyboard Manager to start and stop the Hook
+            </summary>
+        </member>
         <member name="M:FidelIME.Plugin.InputManager.KeyboardManager.StartHook">
             <summary>
             Start Keyboard Hook

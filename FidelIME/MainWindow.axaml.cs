@@ -10,7 +10,7 @@ namespace FidelIME
     public partial class MainWindow : Window
     {
         private static bool IsAmharic = false;
-        private Plugin.InputManager.Interfaces.IKeyboardManager keyboard = new KeyboardManager();
+        IKeyboardManager keyboardManager = new KeyboardManager();
         public MainWindow()
         {
             InitializeComponent();
@@ -26,13 +26,13 @@ namespace FidelIME
                 {
                     FidelChangeBtn.Source = new Bitmap($"{Directory.GetCurrentDirectory()}/logo.png");
                     IsAmharic = true;
-                    keyboard.StartKeyboardListener();
+                    keyboardManager.StartHook();
                 }
                 else
                 {
                     FidelChangeBtn.Source = new Bitmap($"{Directory.GetCurrentDirectory()}/logo2.png");
                     IsAmharic = false;
-                    keyboard.DisposeKeyboardListener();
+                    keyboardManager.StartHook();
                 }
             }
         }

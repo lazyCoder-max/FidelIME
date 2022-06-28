@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yHe28/yzlupCXHveJtdw29fjfATcYVmsnaef8KtYIz28+wKkT4GK1eJdVsPP4dDNX6FnPKUTjsrg11VCTTSzsg==",
+  "dgSpecHash": "8f++/wTGVzkcH8OiyiD98sLqo0OwcJ2hlppYLjWNOiXG/TW9jdYbV7XGJV4sb8PQ5B1IVUwCHqcQtYNaF8uFTw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kidus\\Source\\Repos\\FidelIME\\FidelIME.Plugin\\FidelIME.Plugin.csproj",
+  "projectFilePath": "C:\\Users\\kidus\\source\\repos\\FidelIME\\FidelIME.Plugin\\FidelIME.Plugin.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kidus\\.nuget\\packages\\desktop.robot\\1.3.1\\desktop.robot.1.3.1.nupkg.sha512",
     "C:\\Users\\kidus\\.nuget\\packages\\gregsstack.inputsimulatorstandard\\1.3.3\\gregsstack.inputsimulatorstandard.1.3.3.nupkg.sha512",

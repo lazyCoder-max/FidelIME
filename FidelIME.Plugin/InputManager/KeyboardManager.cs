@@ -7,7 +7,10 @@ using SharpHook;
 
 namespace FidelIME.Plugin.InputManager
 {
-    public class KeyboardManager
+    /// <summary>
+    /// Keyboard Manager to start and stop the Hook
+    /// </summary>
+    public class KeyboardManager : IKeyboardManager
     {
         private TaskPoolGlobalHook hook { get; set; }
         ISyllableControl syllableControl = new SyllableControl(new InputEditor());
@@ -49,17 +52,29 @@ namespace FidelIME.Plugin.InputManager
         private void Hook_KeyReleased(object sender, KeyboardHookEventArgs e)
         {
         }
+        bool isTyping = false;
         private void Hook_KeyTyped(object sender, KeyboardHookEventArgs e)
         {
-            if (e.Data.KeyChar != '\b' || !e.Data.KeyChar.ToString().Contains("\\"))
+            if (!isTyping)
             {
-                robot.KeyPress(Key.Backspace);
-                var result = syllableControl.ToEthiopic(e.Data.KeyChar.ToString());
-                var convertedVal = syllableControl.GetCharacterValue(result);
-                robot.Type(convertedVal);
-                robot.CombineKeys(new Key[] { Key.Alt, Key.X });//s1235
+                if (e.Data.KeyChar != '\b' || !e.Data.KeyChar.ToString().Contains("\\"))
+                {
+                    if (e.Data.KeyChar != 'U')
+                    {
+                        isTyping = true;
+                        robot.KeyPress(Key.Backspace);
+                        var result = syllableControl.ToEthiopic(e.Data.KeyChar.ToString());
+                        if (!string.IsNullOrEmpty(result))
+                        {
+                            var convertedVal = syllableControl.GetCharacterValue(result);
+                            robot.CombineKeys(new Key[] { Key.Control, Key.Shift, Key.U });
+                            robot.Type(convertedVal);
+                            robot.Type(new Key[] { Key.Enter });
+                            isTyping = false;
+                        }
+                    }
+                }
             }
-
         }
 
         private void Hook_HookDisabled(object sender, HookEventArgs e)
