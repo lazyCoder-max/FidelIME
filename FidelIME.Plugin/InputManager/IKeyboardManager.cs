@@ -1,8 +1,10 @@
-﻿namespace FidelIME.Plugin.InputManager
+﻿using System.Threading.Tasks;
+
+namespace FidelIME.Plugin.InputManager
 {
     public interface IKeyboardManager
     {
-        void StartHook();
+        Task StartHookAsync();
         void StopHook();
     }
 }

@@ -17,7 +17,7 @@ namespace FidelIME
             FidelChangeBtn.Source = new Bitmap($"{Directory.GetCurrentDirectory()}/logo2.png");
         }
 
-        private void FidelChangeBtn_OnPointerPressed(object? sender, PointerPressedEventArgs e)
+        private async void FidelChangeBtn_OnPointerPressed(object? sender, PointerPressedEventArgs e)
         {
             this.BorderThickness = new Thickness(0, 0, 0, 0);
             if (e.ClickCount == 2)
@@ -26,13 +26,13 @@ namespace FidelIME
                 {
                     FidelChangeBtn.Source = new Bitmap($"{Directory.GetCurrentDirectory()}/logo.png");
                     IsAmharic = true;
-                    keyboardManager.StartHook();
+                   await keyboardManager.StartHookAsync();
                 }
                 else
                 {
                     FidelChangeBtn.Source = new Bitmap($"{Directory.GetCurrentDirectory()}/logo2.png");
                     IsAmharic = false;
-                    keyboardManager.StartHook();
+                    await keyboardManager.StartHookAsync();
                 }
             }
         }

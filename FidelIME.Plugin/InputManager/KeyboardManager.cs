@@ -5,6 +5,7 @@ using FidelIME.Plugin.IME;
 using FidelIME.Plugin.IME.Interfaces;
 using SharpHook;
 using System;
+using System.Threading.Tasks;
 
 namespace FidelIME.Plugin.InputManager
 {
@@ -14,16 +15,18 @@ namespace FidelIME.Plugin.InputManager
     public class KeyboardManager : IKeyboardManager
     {
         private TaskPoolGlobalHook hook { get; set; }
+        private EventSimulator Simulator { get; set; }
         ISyllableControl syllableControl = new SyllableControl(new InputEditor());
         Robot robot = new Robot();
         public KeyboardManager()
         {
+            Simulator = new EventSimulator();
         }
 
         /// <summary>
         /// Start Keyboard Hook
         /// </summary>
-        public void StartHook()
+        public async Task StartHookAsync()
         {
             switch (Environment.OSVersion.Platform)
             {
@@ -32,6 +35,14 @@ namespace FidelIME.Plugin.InputManager
                 case PlatformID.Win32Windows:
                     break;
                 case PlatformID.Win32NT:
+                    //here
+                    hook = new TaskPoolGlobalHook();
+                    hook.HookEnabled += Hook_HookEnabled;
+                    if(!hook.IsRunning)
+                    {
+                        hook.KeyTyped += Hook_KeyTyped;
+                        await hook.RunAsync();
+                    }
                     break;
                 case PlatformID.WinCE:
                     break;
@@ -48,53 +59,29 @@ namespace FidelIME.Plugin.InputManager
             }
 
         }
-        /// <summary>
-        /// Dispose Keyboard Hook
-        /// </summary>
-        public void StopHook()
-        {
-        }
-        private void Hook_KeyPressed(object sender, KeyboardHookEventArgs e)
-        {
-
-        }
-
-        private void Hook_KeyReleased(object sender, KeyboardHookEventArgs e)
-        {
-        }
-        bool isTyping = false;
+        
         private void Hook_KeyTyped(object sender, KeyboardHookEventArgs e)
         {
-            if (!isTyping)
+            if(hook.IsRunning)
             {
-                if (e.Data.KeyChar != '\b' || !e.Data.KeyChar.ToString().Contains("\\"))
+                if(e.Data.KeyChar == 'a')
                 {
-                    if (e.Data.KeyChar != 'U')
-                    {
-                        isTyping = true;
-                        robot.KeyPress(Key.Backspace);
-                        var result = syllableControl.ToEthiopic(e.Data.KeyChar.ToString());
-                        if (!string.IsNullOrEmpty(result))
-                        {
-                            var convertedVal = syllableControl.GetCharacterValue(result);
-                            robot.CombineKeys(new Key[] { Key.Control, Key.Shift, Key.U });
-                            robot.Type(convertedVal);
-                            robot.Type(new Key[] { Key.Enter });
-                            isTyping = false;
-                        }
-                    }
+                    Simulator.SimulateKeyPress(SharpHook.Native.KeyCode.VcLeftControl);
+                    Simulator.SimulateKeyPress(SharpHook.Native.KeyCode.VcA);
+                    Simulator.SimulateKeyRelease(SharpHook.Native.KeyCode.VcLeftControl);
+                    Simulator.SimulateKeyRelease(SharpHook.Native.KeyCode.VcA);
                 }
             }
         }
 
-        private void Hook_HookDisabled(object sender, HookEventArgs e)
-        {
-
-        }
-
         private void Hook_HookEnabled(object sender, HookEventArgs e)
         {
+            
         }
 
+        public void StopHook()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

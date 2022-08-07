@@ -7,8 +7,13 @@
 
   <ItemGroup>
     <PackageReference Include="Desktop.Robot" Version="1.3.1" />
-    <PackageReference Include="GregsStack.InputSimulatorStandard" Version="1.3.3" />
-    <PackageReference Include="SharpHook" Version="3.0.0" />
+    <PackageReference Include="GregsStack.InputSimulatorStandard" Version="1.3.4" />
+    <PackageReference Include="SharpHook" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="InputManager\Linux\" />
+    <Folder Include="InputManager\MacOSX\" />
   </ItemGroup>
 
 </Project>
