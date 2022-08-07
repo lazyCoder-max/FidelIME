@@ -4,6 +4,7 @@ using Desktop.Robot.Extensions;
 using FidelIME.Plugin.IME;
 using FidelIME.Plugin.IME.Interfaces;
 using SharpHook;
+using System;
 
 namespace FidelIME.Plugin.InputManager
 {
@@ -24,25 +25,34 @@ namespace FidelIME.Plugin.InputManager
         /// </summary>
         public void StartHook()
         {
-            hook = new TaskPoolGlobalHook();
-            hook.HookEnabled += Hook_HookEnabled;
-            hook.HookDisabled += Hook_HookDisabled;
-            hook.KeyTyped += Hook_KeyTyped;
-            hook.KeyReleased += Hook_KeyReleased;
-            hook.KeyPressed += Hook_KeyPressed;
-            hook.Run();
+            switch (Environment.OSVersion.Platform)
+            {
+                case PlatformID.Win32S:
+                    break;
+                case PlatformID.Win32Windows:
+                    break;
+                case PlatformID.Win32NT:
+                    break;
+                case PlatformID.WinCE:
+                    break;
+                case PlatformID.Unix:
+                    break;
+                case PlatformID.Xbox:
+                    break;
+                case PlatformID.MacOSX:
+                    break;
+                case PlatformID.Other:
+                    break;
+                default:
+                    break;
+            }
+
         }
         /// <summary>
         /// Dispose Keyboard Hook
         /// </summary>
         public void StopHook()
         {
-            hook.HookEnabled -= Hook_HookEnabled;
-            hook.HookDisabled -= Hook_HookDisabled;
-            hook.KeyTyped -= Hook_KeyTyped;
-            hook.KeyReleased -= Hook_KeyReleased;
-            hook.KeyPressed -= Hook_KeyPressed;
-            hook.Dispose();
         }
         private void Hook_KeyPressed(object sender, KeyboardHookEventArgs e)
         {
