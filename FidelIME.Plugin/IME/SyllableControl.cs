@@ -329,6 +329,27 @@ namespace FidelIME.Plugin.IME
                 case "co":
                     result = $"{Syllables.ቾ}";
                     break;
+                    case "T2e":
+                    result = $"{Syllables.ጠ}";
+                    break;
+                    case "T2u":
+                    result = $"{Syllables.ጡ}";
+                    break;
+                    case "T2i":
+                    result = $"{Syllables.ጢ}";
+                    break;
+                    case "T2a":
+                    result = $"{Syllables.ጣ}";
+                    break;
+                    case "T2ei":
+                    result = $"{Syllables.ጤ}";
+                    break;
+                    case "T2":
+                    result = $"{Syllables.ጥ}";
+                    break;
+                    case "T2o":
+                    result = $"{Syllables.ጦ}";
+                    break;
                 case "h2e":
                     result = $"{Syllables.ኀ}";
                     break;
@@ -687,25 +708,64 @@ namespace FidelIME.Plugin.IME
                     result = $"{Syllables.ጶ}";
                     break;
                 case "xe":
-                    result = $"{Syllables.ጸ}";
+                    result = $"{Syllables.ፀ}";
                     break;
                 case "xu":
-                    result = $"{Syllables.ጹ}";
+                    result = $"{Syllables.ፁ}";
                     break;
                 case "xi":
-                    result = $"{Syllables.ጺ}";
+                    result = $"{Syllables.ፂ}";
                     break;
                 case "xa":
-                    result = $"{Syllables.ጻ}";
+                    result = $"{Syllables.ፃ}";
                     break;
                 case "xie":
-                    result = $"{Syllables.ጼ}";
+                    result = $"{Syllables.ፄ}";
                     break;
                 case "x":
-                    result = $"{Syllables.ጽ}";
+                    result = $"{Syllables.ፅ}";
                     break;
                 case "xo":
-                    result = $"{Syllables.ጾ}";
+                    result = $"{Syllables.ፆ}";
+                    break;
+                    case "x2e":
+                    result = $"{Syllables.ጸ}";
+                    break;
+                    case "x2u":
+                    result = $"{Syllables.ጹ}";
+                    break;
+                    case "x2i":
+                    result = $"{Syllables.ጺ}";
+                    break;
+                    case "x2a":
+                    result = $"{Syllables.ጻ}";
+                    break;
+                    case "x2ie":
+                    result = $"{Syllables.ጼ}";
+                    break;
+                    case "x2":
+                    result = $"{Syllables.ጽ}";
+                    break;
+                    case "she":
+                    result = $"{Syllables.ሸ}";
+                    break;
+                    case "shu":
+                    result = $"{Syllables.ሹ}";
+                    break;
+                    case "shi":
+                    result = $"{Syllables.ሺ}";
+                    break;
+                    case "sha":
+                    result = $"{Syllables.ሻ}";
+                    break;
+                    case "she":
+                    result = $"{Syllables.ሼ}";
+                    break;
+                    case "sh":
+                    result = $"{Syllables.ሽ}";
+                    break;
+                    case "sho":
+                    result = $"{Syllables.ሾ}";
                     break;
                 case "fe":
                     result = $"{Syllables.ፈ}";
@@ -1001,7 +1061,7 @@ namespace FidelIME.Plugin.IME
                 case "mwie":
                     result = $"{Syllables.ᎂ}";
                     break;
-                case "mwo":
+                case "mwe":
                     result = $"{Syllables.ᎃ}";
                     break;
                 case "bwe":

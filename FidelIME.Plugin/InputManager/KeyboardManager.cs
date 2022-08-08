@@ -3,6 +3,7 @@ using Desktop.Robot;
 using Desktop.Robot.Extensions;
 using FidelIME.Plugin.IME;
 using FidelIME.Plugin.IME.Interfaces;
+using GregsStack.InputSimulatorStandard;
 using SharpHook;
 using System;
 using System.Threading.Tasks;
@@ -15,12 +16,10 @@ namespace FidelIME.Plugin.InputManager
     public class KeyboardManager : IKeyboardManager
     {
         private TaskPoolGlobalHook hook { get; set; }
-        private EventSimulator Simulator { get; set; }
         ISyllableControl syllableControl = new SyllableControl(new InputEditor());
         Robot robot = new Robot();
         public KeyboardManager()
         {
-            Simulator = new EventSimulator();
         }
 
         /// <summary>
@@ -38,7 +37,7 @@ namespace FidelIME.Plugin.InputManager
                     //here
                     hook = new TaskPoolGlobalHook();
                     hook.HookEnabled += Hook_HookEnabled;
-                    if(!hook.IsRunning)
+                    if (!hook.IsRunning)
                     {
                         hook.KeyTyped += Hook_KeyTyped;
                         await hook.RunAsync();
@@ -59,24 +58,30 @@ namespace FidelIME.Plugin.InputManager
             }
 
         }
-        
+
         private void Hook_KeyTyped(object sender, KeyboardHookEventArgs e)
         {
-            if(hook.IsRunning)
+            var simulator = new InputSimulator();
+            if (hook.IsRunning)
             {
-                if(e.Data.KeyChar == 'a')
+                if (e.Data.KeyChar != '\b')
                 {
-                    Simulator.SimulateKeyPress(SharpHook.Native.KeyCode.VcLeftControl);
-                    Simulator.SimulateKeyPress(SharpHook.Native.KeyCode.VcA);
-                    Simulator.SimulateKeyRelease(SharpHook.Native.KeyCode.VcLeftControl);
-                    Simulator.SimulateKeyRelease(SharpHook.Native.KeyCode.VcA);
+                    try
+                    {
+                        var result = syllableControl.ToEthiopic(e.Data.KeyChar.ToString());
+                        simulator.Keyboard.KeyPress(GregsStack.InputSimulatorStandard.Native.VirtualKeyCode.BACK);
+                        simulator.Keyboard.TextEntry(result);
+                    }
+                    catch (Exception)
+                    {
+                    }
                 }
             }
         }
 
         private void Hook_HookEnabled(object sender, HookEventArgs e)
         {
-            
+
         }
 
         public void StopHook()
