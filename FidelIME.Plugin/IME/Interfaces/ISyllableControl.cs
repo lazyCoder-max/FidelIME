@@ -16,7 +16,7 @@
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        string ToEthiopic(string value);
+        string ToEthiopic(char value);
 
         /// <summary>
         /// Convert string to UTF-16
@@ -24,5 +24,16 @@
         /// <param name="utf8String"></param>
         /// <returns></returns>
         string GetCharacterValue(string utf8String);
+
+        /// <summary>
+        /// check if input value is vowel
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns><see cref="bool"/></returns>
+        bool IsVowel(char value);
+
+        void ResetInputManager();
+
+        bool IsPerformClean { get; set; }
     }
 }

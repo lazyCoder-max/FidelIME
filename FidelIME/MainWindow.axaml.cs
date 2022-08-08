@@ -32,7 +32,7 @@ namespace FidelIME
                 {
                     FidelChangeBtn.Source = new Bitmap($"{Directory.GetCurrentDirectory()}/logo2.png");
                     IsAmharic = false;
-                    await keyboardManager.StartHookAsync();
+                    keyboardManager.StopHook();
                 }
             }
         }

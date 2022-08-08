@@ -2,6 +2,7 @@ using FidelIME.Plugin.IME.Enum;
 using FidelIME.Plugin.IME.Interfaces;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using System.Linq;
 
 namespace FidelIME.Plugin.IME
 {
@@ -11,7 +12,10 @@ namespace FidelIME.Plugin.IME
     public class SyllableControl : ISyllableControl
     {
         private IInputEditor _inputEditor;
+        private char[] inputManager = new char[5];
+        private int inputPointer = 0;
 
+        public bool IsPerformClean { get; set; }
 
         /// <summary>
         /// Constractor
@@ -21,12 +25,13 @@ namespace FidelIME.Plugin.IME
         {
             _inputEditor = new InputEditor();
         }
+
         /// <summary>
         /// check if input value is vowel
         /// </summary>
         /// <param name="value"></param>
         /// <returns><see cref="bool"/></returns>
-        private bool IsVowel(char value)
+        public bool IsVowel(char value)
         {
             if (value == 'a' || value == 'A' || value == 'E' || value == 'e' || value == 'i' || value == 'I' || value == 'o' || value == 'O' || value == 'U' || value == 'u')
                 return true;
@@ -329,25 +334,25 @@ namespace FidelIME.Plugin.IME
                 case "co":
                     result = $"{Syllables.ቾ}";
                     break;
-                    case "T2e":
+                case "T2e":
                     result = $"{Syllables.ጠ}";
                     break;
-                    case "T2u":
+                case "T2u":
                     result = $"{Syllables.ጡ}";
                     break;
-                    case "T2i":
+                case "T2i":
                     result = $"{Syllables.ጢ}";
                     break;
-                    case "T2a":
+                case "T2a":
                     result = $"{Syllables.ጣ}";
                     break;
-                    case "T2ei":
+                case "T2ei":
                     result = $"{Syllables.ጤ}";
                     break;
-                    case "T2":
+                case "T2":
                     result = $"{Syllables.ጥ}";
                     break;
-                    case "T2o":
+                case "T2o":
                     result = $"{Syllables.ጦ}";
                     break;
                 case "h2e":
@@ -728,43 +733,43 @@ namespace FidelIME.Plugin.IME
                 case "xo":
                     result = $"{Syllables.ፆ}";
                     break;
-                    case "x2e":
+                case "x2e":
                     result = $"{Syllables.ጸ}";
                     break;
-                    case "x2u":
+                case "x2u":
                     result = $"{Syllables.ጹ}";
                     break;
-                    case "x2i":
+                case "x2i":
                     result = $"{Syllables.ጺ}";
                     break;
-                    case "x2a":
+                case "x2a":
                     result = $"{Syllables.ጻ}";
                     break;
-                    case "x2ie":
+                case "x2ie":
                     result = $"{Syllables.ጼ}";
                     break;
-                    case "x2":
+                case "x2":
                     result = $"{Syllables.ጽ}";
                     break;
-                    case "she":
+                case "she":
                     result = $"{Syllables.ሸ}";
                     break;
-                    case "shu":
+                case "shu":
                     result = $"{Syllables.ሹ}";
                     break;
-                    case "shi":
+                case "shi":
                     result = $"{Syllables.ሺ}";
                     break;
-                    case "sha":
+                case "sha":
                     result = $"{Syllables.ሻ}";
                     break;
-                    case "she":
+                case "shie":
                     result = $"{Syllables.ሼ}";
                     break;
-                    case "sh":
+                case "sh":
                     result = $"{Syllables.ሽ}";
                     break;
-                    case "sho":
+                case "sho":
                     result = $"{Syllables.ሾ}";
                     break;
                 case "fe":
@@ -1128,22 +1133,25 @@ namespace FidelIME.Plugin.IME
 
             return result;
         }
+
         /// <summary>
         /// Convert character to Ethiopic value
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public string ToEthiopic(string value)
+        public string ToEthiopic(char value)
         {
-            var values = ConvertInput(value);
+            var input = CheckInput(value);
+            var values = ConvertInput(input);
             string result = null;
             foreach (var val in values)
             {
-                result += GetEthiopic(value);
+                result += GetEthiopic(input);
             }
 
             return result;
         }
+
         /// <summary>
         /// This method prepares string value for conversion
         /// </summary>
@@ -1176,6 +1184,7 @@ namespace FidelIME.Plugin.IME
 
             return result;
         }
+
         /// <summary>
         /// Convert string to Character code
         /// </summary>
@@ -1189,6 +1198,53 @@ namespace FidelIME.Plugin.IME
                 characters += $"{(int)utf8String[i]:x4}";
             }
             return characters;
+        }
+
+        private string CheckInput(char input)
+        {
+            var result = "";
+            if (inputPointer >= 1)
+            {
+                if (!IsVowel(input) && input != '2' && (inputManager[1] != '2' && input != 'w'))
+                {
+                    inputPointer = 0;
+                    inputManager = new char[5];
+                    IsPerformClean = false;
+                    inputManager[inputPointer] = input;
+                    inputPointer++;
+                }
+                if (!IsVowel(inputManager[0]) && IsVowel(input))
+                {
+                    inputManager[inputPointer] = input;
+                    result = Join();
+                    inputPointer++;
+                    IsPerformClean = true;
+                }
+
+            }
+            else
+            {
+                inputManager[inputPointer] = input;
+                inputPointer++;
+                IsPerformClean = false;
+            }
+            return Join();
+        }
+        public void ResetInputManager()
+        {
+            inputManager = new char[5];
+            inputPointer = 0;
+            IsPerformClean = false;
+        }
+        private string Join()
+        {
+            var result = "";
+            foreach (var item in inputManager)
+            {
+                if (item != '\0')
+                    result += item;
+            }
+            return result;
         }
     }
 }
