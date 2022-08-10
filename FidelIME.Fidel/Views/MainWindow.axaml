@@ -7,7 +7,7 @@
 		xmlns:ext="using:FidelIME.Fidel.Extensibility"
         x:Class="FidelIME.Fidel.Views.MainWindow"
         Icon="/Assets/logo.ico"
-        Title="Fidel IME" Height="82" Width="771.21" CanResize="False" Topmost="True" Background="#FF313131"
+        Title="Fidel IME" Height="82" Width="150" CanResize="False" Topmost="True" Background="#FF313131"
 		Opened="MainWindow_Opened"
 		Closing="MainWindow_Closing"
 		>

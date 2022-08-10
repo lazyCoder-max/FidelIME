@@ -4,6 +4,7 @@ using Avalonia.Input;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Threading;
+using FidelIME.Fidel.Views;
 using FidelIME.Plugin.InputManager;
 using ReactiveUI;
 using System;
@@ -24,13 +25,15 @@ namespace FidelIME.Fidel.ViewModels
         private string helpBtn = $"{Directory.GetCurrentDirectory()}/Assets/help_100px.png";
         private List<string> list = new List<string>();
         private StackPanel grid;
+        private MainWindow view;
         #endregion
 
         #region Properties
         public StackPanel SuggestionGrid { get => grid; set => this.RaiseAndSetIfChanged(ref grid, value); }
         public string FidelChangeBtn { get => fidelBtn; set => this.RaiseAndSetIfChanged(ref fidelBtn, value); }
         public string HelpBtn { get => helpBtn; set => this.RaiseAndSetIfChanged(ref helpBtn, value); }
-        
+
+        public MainWindow View { get=>view; set=>this.RaiseAndSetIfChanged(ref view,value); }
         #endregion
 
         #region Methods
@@ -72,7 +75,9 @@ namespace FidelIME.Fidel.ViewModels
                 FidelChangeBtn = $"{Directory.GetCurrentDirectory()}/Assets/logo2.png";
                 IsAmharic = false;
                 keyboardManager.KeyboardTyped -= KeyboardManager_KeyboardTyped;
+                SuggestionGrid.Children.Clear();
                 keyboardManager.StopHook();
+                View.Width = 150;
             }
         }
 
@@ -83,6 +88,7 @@ namespace FidelIME.Fidel.ViewModels
 
         private async void KeyboardManager_KeyboardTyped(object? sender, string e)
         {
+            
             await SuggestWordAsync(e);
         }
 
@@ -105,6 +111,7 @@ namespace FidelIME.Fidel.ViewModels
                     SuggestionGrid.HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center;
                     SuggestionGrid.Children.Add(suggestedWordBtn);
                 }
+                View.Width = 771.21;
             });
             
         }
