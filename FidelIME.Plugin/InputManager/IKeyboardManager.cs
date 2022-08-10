@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace FidelIME.Plugin.InputManager
 {
@@ -6,5 +7,6 @@ namespace FidelIME.Plugin.InputManager
     {
         Task StartHookAsync();
         void StopHook();
+        event EventHandler<string> KeyboardTyped;
     }
 }

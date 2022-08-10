@@ -20,6 +20,9 @@ namespace FidelIME.Plugin.InputManager
         public bool IsInputAutomated { get; set; } = true;
         public bool IsSpaceClicked { get; set; } = false;
         public InputSimulator Simulator { get; set; }
+        public event EventHandler<string> KeyboardTyped;
+        public string Word { get; set; }
+
         Robot robot = new Robot();
         public KeyboardManager()
         {
@@ -73,6 +76,7 @@ namespace FidelIME.Plugin.InputManager
                 {
                     IsSpaceClicked = true;
                     syllableControl.ResetInputManager();
+                    Word = "";
                 }
                 if (syllableControl.IsPerformClean && e.Data.KeyChar == 'A')
                     syllableControl.ResetInputManager();
@@ -85,6 +89,8 @@ namespace FidelIME.Plugin.InputManager
                         if (syllableControl.IsPerformClean)
                             ClickBackspace();
                         IsInputAutomated = true;
+                        Word += result;
+                        OnKeyboardTyped(Word);
                         Simulator.Keyboard.TextEntry(result);
                     }
                     catch (Exception)
@@ -149,16 +155,24 @@ namespace FidelIME.Plugin.InputManager
             IsSpaceClicked = false;
             syllableControl = null;
         }
+        protected virtual void OnKeyboardTyped(string word)
+        {
+            KeyboardTyped?.Invoke(this, word);
+        }
         private void ClickBackspace()
         {
             if (!IsSpaceClicked)
             {
+                if(Word?.Length>=1)
+                    Word = Word.Remove(Word.Length);
                 IsInputAutomated = true;
                 robot.KeyPress(Key.Backspace);
                 IsInputAutomated = false;
             }
             else
             {
+                if (Word?.Length >= 1)
+                    Word = Word.Remove(Word.Length);
                 IsSpaceClicked = false;
                 IsInputAutomated = true;
                 robot.KeyPress(Key.Backspace);

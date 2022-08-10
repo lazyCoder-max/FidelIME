@@ -1,11 +1,15 @@
-using Avalonia;
+﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using FidelIME.Plugin.InputManager;
 using ReactiveUI;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace FidelIME.Fidel.ViewModels
@@ -17,13 +21,15 @@ namespace FidelIME.Fidel.ViewModels
         IKeyboardManager keyboardManager = new KeyboardManager();
         private string fidelBtn = $"{Directory.GetCurrentDirectory()}/Assets/logo2.png";
         private string helpBtn = $"{Directory.GetCurrentDirectory()}/Assets/help_100px.png";
-        private ScrollViewer scrollViewer;
+        private List<string> list = new List<string>();
+        private StackPanel grid;
         #endregion
 
         #region Properties
-        public ScrollViewer ScrollViewer { get => scrollViewer; set => this.RaiseAndSetIfChanged(ref scrollViewer, value); }
+        public StackPanel SuggestionGrid { get => grid; set => this.RaiseAndSetIfChanged(ref grid, value); }
         public string FidelChangeBtn { get => fidelBtn; set => this.RaiseAndSetIfChanged(ref fidelBtn, value); }
         public string HelpBtn { get => helpBtn; set => this.RaiseAndSetIfChanged(ref helpBtn, value); }
+        
         #endregion
 
         #region Methods
@@ -31,6 +37,7 @@ namespace FidelIME.Fidel.ViewModels
         {
             FidelChangeBtn = $"{Directory.GetCurrentDirectory()}/Assets/logo2.png";
             HelpBtn = $"{Directory.GetCurrentDirectory()}/Assets/help_100px.png";
+            list =  File.ReadLines($@"{Directory.GetCurrentDirectory()}/Assets/AmharicWordListSortedSimplified.txt", Encoding.UTF8).Distinct().ToList();
         }
 
         public void ChangeImage(bool isEnter = true)
@@ -56,7 +63,7 @@ namespace FidelIME.Fidel.ViewModels
                 FidelChangeBtn = $"{Directory.GetCurrentDirectory()}/Assets/logo.png";
                 IsAmharic = true;
                 await keyboardManager.StartHookAsync();
-                await SuggestWordAsync();
+                keyboardManager.KeyboardTyped += KeyboardManager_KeyboardTyped;
             }
             else
             {
@@ -65,13 +72,26 @@ namespace FidelIME.Fidel.ViewModels
                 keyboardManager.StopHook();
             }
         }
-        public async Task SuggestWordAsync()
+
+        private async void KeyboardManager_KeyboardTyped(object? sender, string e)
         {
-            await Task.Run(() =>
+            await SuggestWordAsync(e);
+        }
+
+        public async Task SuggestWordAsync(string input)
+        {
+            await Task.Factory.StartNew(() =>
             {
-                TextBlock textBlock = new TextBlock();
-                textBlock.Text = "test text";
-                scrollViewer.Content = textBlock;
+                var datas = list.Where(x => x.Contains(input)).ToList().Take(6);
+                foreach (var data in datas)
+                {
+                    TextBlock textBlock = new TextBlock();
+                    textBlock.Foreground = Brushes.White;
+                    textBlock.FontSize = 25;
+                    textBlock.Text = $"{data} ";
+                    SuggestionGrid.HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center;
+                    SuggestionGrid.Children.Add(textBlock);
+                }
             });
         }
     }

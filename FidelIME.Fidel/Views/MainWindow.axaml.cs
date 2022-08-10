@@ -30,6 +30,7 @@ namespace FidelIME.Fidel.Views
 
             ViewModel = this.DataContext as MainWindowViewModel;
             ViewModel?.Initiallise(FidelChangeBtn, FidelChangeBtn1);
+            ViewModel.SuggestionGrid = sv;
         }
 
         private void FidelChangeBtn1_OnPointerEnter(object? sender, PointerEventArgs e)
