@@ -88,10 +88,11 @@ namespace FidelIME.Plugin.InputManager
                         var result = syllableControl.ToEthiopic(e.Data.KeyChar);
                         if (syllableControl.IsPerformClean)
                             ClickBackspace();
-                        IsInputAutomated = true;
                         Word += result;
+                        IsInputAutomated = true;
                         OnKeyboardTyped(Word);
                         Simulator.Keyboard.TextEntry(result);
+                        
                     }
                     catch (Exception)
                     {
@@ -157,22 +158,24 @@ namespace FidelIME.Plugin.InputManager
         }
         protected virtual void OnKeyboardTyped(string word)
         {
-            KeyboardTyped?.Invoke(this, word);
+            if(word.Length>=3)
+            {
+                KeyboardTyped?.Invoke(this, word);
+            }
         }
         private void ClickBackspace()
         {
             if (!IsSpaceClicked)
             {
-                if(Word?.Length>=1)
-                    Word = Word.Remove(Word.Length);
+               if (Word?.Length >= 1 && syllableControl.IsPerformClean)
+                    Word = Word.Remove(Word.Length - 1,1);
                 IsInputAutomated = true;
                 robot.KeyPress(Key.Backspace);
                 IsInputAutomated = false;
+                syllableControl.IsPerformClean = false;
             }
             else
             {
-                if (Word?.Length >= 1)
-                    Word = Word.Remove(Word.Length);
                 IsSpaceClicked = false;
                 IsInputAutomated = true;
                 robot.KeyPress(Key.Backspace);

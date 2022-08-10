@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
+using Avalonia.Threading;
 using FidelIME.Plugin.InputManager;
 using ReactiveUI;
 using System;
@@ -62,8 +63,8 @@ namespace FidelIME.Fidel.ViewModels
             {
                 FidelChangeBtn = $"{Directory.GetCurrentDirectory()}/Assets/logo.png";
                 IsAmharic = true;
-                await keyboardManager.StartHookAsync();
                 keyboardManager.KeyboardTyped += KeyboardManager_KeyboardTyped;
+                await keyboardManager.StartHookAsync();
             }
             else
             {
@@ -80,9 +81,9 @@ namespace FidelIME.Fidel.ViewModels
 
         public async Task SuggestWordAsync(string input)
         {
-            await Task.Factory.StartNew(() =>
+            await Dispatcher.UIThread.InvokeAsync(() =>
             {
-                var datas = list.Where(x => x.Contains(input)).ToList().Take(6);
+                var datas = list.Where(x => x.Contains(input)).ToList().Take(5);
                 foreach (var data in datas)
                 {
                     TextBlock textBlock = new TextBlock();
