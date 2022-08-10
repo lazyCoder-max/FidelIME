@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace FidelIME.Fidel.Extensibility
 {
-    internal class BitmapValueConverter: IValueConverter
+    public class BitmapValueConverter: IValueConverter
     {
         public static BitmapValueConverter Instance = new BitmapValueConverter();
 

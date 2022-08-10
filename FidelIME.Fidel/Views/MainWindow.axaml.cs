@@ -12,6 +12,11 @@ namespace FidelIME.Fidel.Views
             InitializeComponent();
         }
 
+        private void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ViewModel?.Dispose();
+        }
+
         private async void FidelChangeBtn_PointerPressed(object? sender, PointerPressedEventArgs e)
         {
             if (e.ClickCount == 2)

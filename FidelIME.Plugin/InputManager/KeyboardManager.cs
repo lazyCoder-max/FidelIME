@@ -23,7 +23,7 @@ namespace FidelIME.Plugin.InputManager
         Robot robot = new Robot();
         public KeyboardManager()
         {
-            
+
         }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace FidelIME.Plugin.InputManager
                 {
                     try
                     {
-                       ClickBackspace();
+                        ClickBackspace();
                         var result = syllableControl.ToEthiopic(e.Data.KeyChar);
                         if (syllableControl.IsPerformClean)
                             ClickBackspace();
@@ -93,9 +93,9 @@ namespace FidelIME.Plugin.InputManager
                 }
                 else
                 {
-                    if(!IsInputAutomated && e.Data.KeyChar == '\b')
+                    if (!IsInputAutomated && e.Data.KeyChar == '\b')
                     {
-                       // syllableControl.ResetInputManager();
+                        // syllableControl.ResetInputManager();
                     }
                     else
                         IsInputAutomated = false;
@@ -118,12 +118,15 @@ namespace FidelIME.Plugin.InputManager
                     break;
                 case PlatformID.Win32NT:
                     //here
-                    hook.HookEnabled -= Hook_HookEnabled;
-                    if (hook.IsRunning)
+                    if (hook != null)
                     {
-                        hook.KeyTyped -= Hook_KeyTyped;
+                        hook.HookEnabled -= Hook_HookEnabled;
+                        if (hook.IsRunning)
+                        {
+                            hook.KeyTyped -= Hook_KeyTyped;
+                        }
+                        hook.Dispose();
                     }
-                    hook.Dispose();
                     break;
                 case PlatformID.WinCE:
                     break;
@@ -148,7 +151,7 @@ namespace FidelIME.Plugin.InputManager
         }
         private void ClickBackspace()
         {
-           if(!IsSpaceClicked)
+            if (!IsSpaceClicked)
             {
                 IsInputAutomated = true;
                 robot.KeyPress(Key.Backspace);

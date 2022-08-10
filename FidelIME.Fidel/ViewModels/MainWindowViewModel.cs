@@ -12,19 +12,28 @@ namespace FidelIME.Fidel.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
+        #region Fields
         private static bool IsAmharic = false;
         IKeyboardManager keyboardManager = new KeyboardManager();
-        private string fidelBtn = $"";
-        private string helpBtn  = $"";
-        public string FidelChangeBtn { get =>fidelBtn; set=> this.RaiseAndSetIfChanged(ref fidelBtn, value); }
+        private string fidelBtn = $"{Directory.GetCurrentDirectory()}/Assets/logo2.png";
+        private string helpBtn = $"{Directory.GetCurrentDirectory()}/Assets/help_100px.png";
+        private ScrollViewer scrollViewer;
+        #endregion
+
+        #region Properties
+        public ScrollViewer ScrollViewer { get => scrollViewer; set => this.RaiseAndSetIfChanged(ref scrollViewer, value); }
+        public string FidelChangeBtn { get => fidelBtn; set => this.RaiseAndSetIfChanged(ref fidelBtn, value); }
         public string HelpBtn { get => helpBtn; set => this.RaiseAndSetIfChanged(ref helpBtn, value); }
+        #endregion
+
+        #region Methods
         public void Initiallise(Image fidelChangeBtn, Image helpBtn)
         {
             FidelChangeBtn = $"{Directory.GetCurrentDirectory()}/Assets/logo2.png";
             HelpBtn = $"{Directory.GetCurrentDirectory()}/Assets/help_100px.png";
         }
 
-        public void ChangeImage(bool isEnter=true)
+        public void ChangeImage(bool isEnter = true)
         {
             switch (isEnter)
             {
@@ -36,7 +45,10 @@ namespace FidelIME.Fidel.ViewModels
                     break;
             }
         }
-
+        public void Dispose()
+        {
+            keyboardManager.StopHook();
+        }
         public async Task ChangeLanguageAsync()
         {
             if (IsAmharic == false)
@@ -44,6 +56,7 @@ namespace FidelIME.Fidel.ViewModels
                 FidelChangeBtn = $"{Directory.GetCurrentDirectory()}/Assets/logo.png";
                 IsAmharic = true;
                 await keyboardManager.StartHookAsync();
+                await SuggestWordAsync();
             }
             else
             {
@@ -52,5 +65,15 @@ namespace FidelIME.Fidel.ViewModels
                 keyboardManager.StopHook();
             }
         }
+        public async Task SuggestWordAsync()
+        {
+            await Task.Run(() =>
+            {
+                TextBlock textBlock = new TextBlock();
+                textBlock.Text = "test text";
+                scrollViewer.Content = textBlock;
+            });
+        }
     }
+    #endregion
 }
