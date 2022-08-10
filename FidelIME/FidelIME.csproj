@@ -11,6 +11,12 @@
         <None Remove=".gitignore" />
         <None Include="bin\Debug\net6.0\logo.png" />
         <None Include="bin\Debug\net6.0\logo2.png" />
+        <None Update="help_1002px.png">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="help_100px.png">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
         <None Update="logo.png">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>

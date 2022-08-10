@@ -15,6 +15,12 @@ namespace FidelIME
         {
             InitializeComponent();
             FidelChangeBtn.Source = new Bitmap($"{Directory.GetCurrentDirectory()}/logo2.png");
+            FidelChangeBtn1.Source = new Bitmap($"{Directory.GetCurrentDirectory()}/help_100px.png");
+        }
+
+        private void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
+        {
+            keyboardManager.StopHook();
         }
 
         private async void FidelChangeBtn_OnPointerPressed(object? sender, PointerPressedEventArgs e)
@@ -35,6 +41,14 @@ namespace FidelIME
                     keyboardManager.StopHook();
                 }
             }
+        }
+        private void FidelChangeBtn1_OnPointerEnter(object? sender, PointerEventArgs e)
+        {
+            FidelChangeBtn1.Source = new Bitmap($"{Directory.GetCurrentDirectory()}/help_1002px.png");
+        }
+        private void FidelChangeBtn1_OnPointerLeave(object? sender, PointerEventArgs e)
+        {
+            FidelChangeBtn1.Source = new Bitmap($"{Directory.GetCurrentDirectory()}/help_100px.png");
         }
     }
 }
