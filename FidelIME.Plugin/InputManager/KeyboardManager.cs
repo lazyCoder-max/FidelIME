@@ -161,7 +161,7 @@ namespace FidelIME.Plugin.InputManager
         }
         protected virtual void OnKeyboardTyped(string word)
         {
-            if(word.Length>=3)
+            if(word.Length>=2)
             {
                 KeyboardTyped?.Invoke(this, word);
             }

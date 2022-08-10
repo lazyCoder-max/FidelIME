@@ -90,20 +90,37 @@ namespace FidelIME.Fidel.ViewModels
         {
             await Dispatcher.UIThread.InvokeAsync(() =>
             {
-                var datas = list.Where(x => x.Contains(input)).ToList().Take(5).OrderByDescending(x=>x.StartsWith(input));
+                var datas = list.Where(x => x.StartsWith(input)).ToList().Take(5).OrderByDescending(x=>x.StartsWith(input));
                 SuggestionGrid.Children.Clear();
                 foreach (var data in datas)
                 {
-                    TextBlock textBlock = new TextBlock();
-                    textBlock.Foreground = Brushes.White;
-                    textBlock.FontSize = 25;
-                    textBlock.Text = $"{data} ";
+                    Button suggestedWordBtn = new Button();
+                    suggestedWordBtn.FontSize = 25;
+                    suggestedWordBtn.Foreground = Brushes.LightGoldenrodYellow;
+                    suggestedWordBtn.Content = $"{data}";
+                    suggestedWordBtn.Margin = new Thickness(5,0,5,0);
+                    suggestedWordBtn.PointerEnter += SuggestedWordBtn_PointerEnter;
+                    suggestedWordBtn.PointerLeave += SuggestedWordBtn_PointerLeave;
                     SuggestionGrid.HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center;
-                    SuggestionGrid.Children.Add(textBlock);
+                    SuggestionGrid.Children.Add(suggestedWordBtn);
                 }
             });
             
         }
+
+        private void SuggestedWordBtn_PointerLeave(object? sender, PointerEventArgs e)
+        {
+            var btn = sender as Button;
+            btn.Foreground = Brushes.LightGoldenrodYellow;
+        }
+
+        private void SuggestedWordBtn_PointerEnter(object? sender, PointerEventArgs e)
+        {
+            var btn = sender as Button;
+            btn.Opacity = 1;
+            btn.Foreground = Brushes.Yellow;
+        }
+
         private async Task SaveSuggestionAsync(string word)
         {
             await Dispatcher.UIThread.InvokeAsync(() =>
