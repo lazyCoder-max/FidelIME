@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
@@ -11,12 +11,12 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <AvaloniaResource Include="Assets\**" />
+    <AvaloniaResource Remove="Assets\AmharicWordListSortedSimplified.txt" />
     <AvaloniaResource Remove="Assets\help_1002px.png" />
     <AvaloniaResource Remove="Assets\help_100px.png" />
     <AvaloniaResource Remove="Assets\logo.png" />
     <AvaloniaResource Remove="Assets\logo2.png" />
     <None Remove=".gitignore" />
-    <None Remove="Assets\AmharicWordListSortedSimplified.txt" />
     <None Remove="Assets\logo.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -49,9 +49,9 @@
     <ProjectReference Include="..\FidelIME.Plugin\FidelIME.Plugin.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <AvaloniaResource Update="Assets\AmharicWordListSortedSimplified.txt">
+    <None Update="Assets\AmharicWordListSortedSimplified.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AvaloniaResource>
+    </None>
     <AvaloniaResource Update="Assets\logo.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AvaloniaResource>
