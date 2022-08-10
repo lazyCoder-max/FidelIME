@@ -23,7 +23,7 @@ namespace FidelIME.Plugin.Tests
         [Test]
         public string Return_Value_ToEthiopic(string[] value)
         {
-            ISyllableControl syllableControl = new SyllableControl(new InputEditor());
+            ISyllableControl syllableControl = new SyllableControl();
             var result = syllableControl.ToEthiopic(value);
             return result;
         }
@@ -31,7 +31,7 @@ namespace FidelIME.Plugin.Tests
         [Test]
         public string Return_EthiopicSyllable_When_GetSyllable_Invoked(string value)
         {
-            ISyllableControl syllableControl = new SyllableControl(new InputEditor());
+            ISyllableControl syllableControl = new SyllableControl();
             var result = syllableControl.GetSyllable(value);
             return result;
         }

@@ -16,14 +16,14 @@ namespace FidelIME.Plugin.InputManager
     public class KeyboardManager : IKeyboardManager
     {
         private TaskPoolGlobalHook hook { get; set; }
-        ISyllableControl syllableControl = new SyllableControl(new InputEditor());
+        ISyllableControl syllableControl;
         public bool IsInputAutomated { get; set; } = true;
         public bool IsSpaceClicked { get; set; } = false;
         public InputSimulator Simulator { get; set; }
         Robot robot = new Robot();
         public KeyboardManager()
         {
-            Simulator = new InputSimulator();
+            
         }
 
         /// <summary>
@@ -31,6 +31,8 @@ namespace FidelIME.Plugin.InputManager
         /// </summary>
         public async Task StartHookAsync()
         {
+            Simulator = new InputSimulator();
+            syllableControl = new SyllableControl();
             switch (Environment.OSVersion.Platform)
             {
                 case PlatformID.Win32S:
@@ -68,12 +70,17 @@ namespace FidelIME.Plugin.InputManager
             if (hook.IsRunning)
             {
                 if (e.Data.RawCode == 32)
+                {
                     IsSpaceClicked = true;
+                    syllableControl.ResetInputManager();
+                }
+                if (syllableControl.IsPerformClean && e.Data.KeyChar == 'A')
+                    syllableControl.ResetInputManager();
                 if (e.Data.KeyChar != '\b' && e.Data.RawCode != 32)
                 {
                     try
                     {
-                        ClickBackspace();
+                       ClickBackspace();
                         var result = syllableControl.ToEthiopic(e.Data.KeyChar);
                         if (syllableControl.IsPerformClean)
                             ClickBackspace();
@@ -88,7 +95,7 @@ namespace FidelIME.Plugin.InputManager
                 {
                     if(!IsInputAutomated && e.Data.KeyChar == '\b')
                     {
-                        syllableControl.ResetInputManager();
+                       // syllableControl.ResetInputManager();
                     }
                     else
                         IsInputAutomated = false;
@@ -112,10 +119,11 @@ namespace FidelIME.Plugin.InputManager
                 case PlatformID.Win32NT:
                     //here
                     hook.HookEnabled -= Hook_HookEnabled;
-                    if (!hook.IsRunning)
+                    if (hook.IsRunning)
                     {
                         hook.KeyTyped -= Hook_KeyTyped;
                     }
+                    hook.Dispose();
                     break;
                 case PlatformID.WinCE:
                     break;
@@ -130,10 +138,17 @@ namespace FidelIME.Plugin.InputManager
                 default:
                     break;
             }
+            Reset();
+        }
+        public void Reset()
+        {
+            IsInputAutomated = true;
+            IsSpaceClicked = false;
+            syllableControl = null;
         }
         private void ClickBackspace()
         {
-            if(!IsSpaceClicked)
+           if(!IsSpaceClicked)
             {
                 IsInputAutomated = true;
                 robot.KeyPress(Key.Backspace);
