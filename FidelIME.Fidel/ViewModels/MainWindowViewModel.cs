@@ -64,14 +64,21 @@ namespace FidelIME.Fidel.ViewModels
                 FidelChangeBtn = $"{Directory.GetCurrentDirectory()}/Assets/logo.png";
                 IsAmharic = true;
                 keyboardManager.KeyboardTyped += KeyboardManager_KeyboardTyped;
+                keyboardManager.WordCreated += KeyboardManager_WordCreated;
                 await keyboardManager.StartHookAsync();
             }
             else
             {
                 FidelChangeBtn = $"{Directory.GetCurrentDirectory()}/Assets/logo2.png";
                 IsAmharic = false;
+                keyboardManager.KeyboardTyped -= KeyboardManager_KeyboardTyped;
                 keyboardManager.StopHook();
             }
+        }
+
+        private async void KeyboardManager_WordCreated(object? sender, string e)
+        {
+            await SaveSuggestionAsync(e);
         }
 
         private async void KeyboardManager_KeyboardTyped(object? sender, string e)
@@ -83,7 +90,8 @@ namespace FidelIME.Fidel.ViewModels
         {
             await Dispatcher.UIThread.InvokeAsync(() =>
             {
-                var datas = list.Where(x => x.Contains(input)).ToList().Take(5);
+                var datas = list.Where(x => x.Contains(input)).ToList().Take(5).OrderByDescending(x=>x.StartsWith(input));
+                SuggestionGrid.Children.Clear();
                 foreach (var data in datas)
                 {
                     TextBlock textBlock = new TextBlock();
@@ -94,6 +102,24 @@ namespace FidelIME.Fidel.ViewModels
                     SuggestionGrid.Children.Add(textBlock);
                 }
             });
+            
+        }
+        private async Task SaveSuggestionAsync(string word)
+        {
+            await Dispatcher.UIThread.InvokeAsync(() =>
+            {
+                var path = $@"{Directory.GetCurrentDirectory()}/Assets/AmharicWordListSortedSimplified.txt";
+                var data = list.Where(x => x.Equals(word)).ToList();
+                if (data.Count == 0)
+                {
+                    using (StreamWriter writer = new StreamWriter(path: path, true, Encoding.UTF8))
+                    {
+                        writer.WriteLine(word);
+                    }
+                    list = File.ReadLines($@"{Directory.GetCurrentDirectory()}/Assets/AmharicWordListSortedSimplified.txt", Encoding.UTF8).Distinct().ToList();
+                }
+            });
+
         }
     }
     #endregion

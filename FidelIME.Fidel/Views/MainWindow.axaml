@@ -19,7 +19,7 @@
 	</Window.Resources>
 	<Grid>
 		<Image x:Name="FidelChangeBtn" Source="{Binding FidelChangeBtn, Converter={StaticResource variableImage}}"   Margin="4,0,0,6" Height="70" Width="71" VerticalAlignment="Bottom" HorizontalAlignment="Left" PointerPressed="FidelChangeBtn_PointerPressed"/>
-		<StackPanel x:Name="sv" HorizontalAlignment="Center" Orientation="Horizontal" Margin="4,20,0,6">
+		<StackPanel x:Name="sv" Orientation="Horizontal" Margin="75,20,75,20">
 			
 		</StackPanel>
 		<Image x:Name="FidelChangeBtn1" Source="{Binding HelpBtn ,Converter={StaticResource variableImage}}"  Margin="4,0,0,6" Height="70" Width="71" VerticalAlignment="Bottom" HorizontalAlignment="Right" PointerEnter="FidelChangeBtn1_OnPointerEnter" PointerLeave="FidelChangeBtn1_OnPointerLeave" />

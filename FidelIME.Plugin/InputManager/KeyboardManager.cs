@@ -21,6 +21,7 @@ namespace FidelIME.Plugin.InputManager
         public bool IsSpaceClicked { get; set; } = false;
         public InputSimulator Simulator { get; set; }
         public event EventHandler<string> KeyboardTyped;
+        public event EventHandler<string> WordCreated;
         public string Word { get; set; }
 
         Robot robot = new Robot();
@@ -76,6 +77,7 @@ namespace FidelIME.Plugin.InputManager
                 {
                     IsSpaceClicked = true;
                     syllableControl.ResetInputManager();
+                    OnWordCreated(Word);
                     Word = "";
                 }
                 if (syllableControl.IsPerformClean && e.Data.KeyChar == 'A')
@@ -155,12 +157,20 @@ namespace FidelIME.Plugin.InputManager
             IsInputAutomated = true;
             IsSpaceClicked = false;
             syllableControl = null;
+            Word = "";
         }
         protected virtual void OnKeyboardTyped(string word)
         {
             if(word.Length>=3)
             {
                 KeyboardTyped?.Invoke(this, word);
+            }
+        }
+        protected virtual void OnWordCreated(string word)
+        {
+            if (word.Length >= 3)
+            {
+                WordCreated?.Invoke(this, word);
             }
         }
         private void ClickBackspace()

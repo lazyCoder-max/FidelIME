@@ -8,5 +8,6 @@ namespace FidelIME.Plugin.InputManager
         Task StartHookAsync();
         void StopHook();
         event EventHandler<string> KeyboardTyped;
+        event EventHandler<string> WordCreated;
     }
 }
