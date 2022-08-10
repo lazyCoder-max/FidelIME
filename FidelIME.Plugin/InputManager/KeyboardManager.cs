@@ -6,6 +6,7 @@ using FidelIME.Plugin.IME.Interfaces;
 using GregsStack.InputSimulatorStandard;
 using SharpHook;
 using System;
+using System.Drawing;
 using System.Threading.Tasks;
 
 namespace FidelIME.Plugin.InputManager
@@ -22,6 +23,7 @@ namespace FidelIME.Plugin.InputManager
         public InputSimulator Simulator { get; set; }
         public event EventHandler<string> KeyboardTyped;
         public event EventHandler<string> WordCreated;
+        public Point MousePosition { get; set; }
         public string Word { get; set; }
 
         Robot robot = new Robot();
@@ -73,6 +75,7 @@ namespace FidelIME.Plugin.InputManager
         {
             if (hook.IsRunning)
             {
+                MousePosition = Simulator.Mouse.Position;
                 if (e.Data.RawCode == 32)
                 {
                     IsSpaceClicked = true;
@@ -191,6 +194,39 @@ namespace FidelIME.Plugin.InputManager
                 robot.KeyPress(Key.Backspace);
                 IsInputAutomated = false;
             }
+        }
+        public void Replace(string word)
+        {
+            robot.MouseMove(MousePosition);
+            robot.Click();
+            for (int i=0;i<Word.Length;i++)
+            {
+                ClickBackspace();
+            }
+            switch (Environment.OSVersion.Platform)
+            {
+                case PlatformID.Win32S:
+                    break;
+                case PlatformID.Win32Windows:
+                    break;
+                case PlatformID.Win32NT:
+                    //here
+                    Simulator.Keyboard.TextEntry(word);
+                    break;
+                case PlatformID.WinCE:
+                    break;
+                case PlatformID.Unix:
+                    break;
+                case PlatformID.Xbox:
+                    break;
+                case PlatformID.MacOSX:
+                    break;
+                case PlatformID.Other:
+                    break;
+                default:
+                    break;
+            }
+            Word = word;
         }
     }
 }

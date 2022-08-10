@@ -101,11 +101,18 @@ namespace FidelIME.Fidel.ViewModels
                     suggestedWordBtn.Margin = new Thickness(5,0,5,0);
                     suggestedWordBtn.PointerEnter += SuggestedWordBtn_PointerEnter;
                     suggestedWordBtn.PointerLeave += SuggestedWordBtn_PointerLeave;
+                    suggestedWordBtn.Click += SuggestedWordBtn_Click;
                     SuggestionGrid.HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center;
                     SuggestionGrid.Children.Add(suggestedWordBtn);
                 }
             });
             
+        }
+
+        private void SuggestedWordBtn_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            keyboardManager.Replace(btn?.Content.ToString());
         }
 
         private void SuggestedWordBtn_PointerLeave(object? sender, PointerEventArgs e)
