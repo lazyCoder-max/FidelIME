@@ -4,7 +4,12 @@
 
 A simple and elegant open-source input method editor that focused on speed and usability.
 
-
+## Technologies Used
+### Development Tools & Design Patterns
+* MVVM
+* C#
+* Avalonia UI
+* .NET Framework 6.0
 ## License
 
 Cross-Platform Ethiopic Input Method Editor
