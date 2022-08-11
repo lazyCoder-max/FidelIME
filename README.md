@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/lazyCoder-max/FidelIME/blob/master/FidelIME/logo.png" width="100" height="100"></p>
+<p align="center"><img src="https://github.com/lazyCoder-max/FidelIME/blob/master/FidelIME.Fidel/Assets/logo.ico" width="100" height="100"></p>
 <h1 align="center">Fidel IME</h1>
 <div align="center">
   <strong>:high_brightness: Cross-Platform Ethiopic Input Method Editor :crescent_moon:</strong><br>
