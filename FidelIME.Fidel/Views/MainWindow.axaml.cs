@@ -12,6 +12,11 @@ namespace FidelIME.Fidel.Views
             InitializeComponent();
         }
 
+        private void FidelChangeBtn1_PointerPressed(object? sender, PointerPressedEventArgs e)
+        {
+            ViewModel?.OpenUserGuide();   
+        }
+
         private void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
         {
             ViewModel?.Dispose();
@@ -42,5 +47,6 @@ namespace FidelIME.Fidel.Views
         {
             ViewModel?.ChangeImage(false);
         }
+
     }
 }

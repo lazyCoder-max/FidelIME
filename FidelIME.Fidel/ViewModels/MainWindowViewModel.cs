@@ -9,6 +9,7 @@ using FidelIME.Plugin.InputManager;
 using ReactiveUI;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -133,6 +134,16 @@ namespace FidelIME.Fidel.ViewModels
             var btn = sender as Button;
             btn.Opacity = 1;
             btn.Foreground = Brushes.Yellow;
+        }
+        public void OpenUserGuide()
+        {
+            try
+            {
+                Process.Start(@"cmd.exe ", @"/c " + $"{Directory.GetCurrentDirectory()}\\Assets\\UserManual.html");
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private async Task SaveSuggestionAsync(string word)

@@ -18,6 +18,7 @@
     <AvaloniaResource Remove="Assets\logo2.png" />
     <None Remove=".gitignore" />
     <None Remove="Assets\logo.ico" />
+    <None Remove="Assets\UserManual.html" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
@@ -45,6 +46,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <AvaloniaResource Update="Assets\logo.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\UserManual.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AvaloniaResource>
   </ItemGroup>

@@ -16,6 +16,7 @@ namespace FidelIME.Plugin.IME
 
         public bool IsPerformClean { get; set; }
         public NumberContol NumberControl { get; set; }
+        public MarksControl MarksControl { get; set; }
 
         /// <summary>
         /// Constractor
@@ -24,6 +25,7 @@ namespace FidelIME.Plugin.IME
         public SyllableControl()
         {
             NumberControl = new NumberContol();
+            MarksControl = new MarksControl();
         }
         public bool IsNumber(char value)
         {
