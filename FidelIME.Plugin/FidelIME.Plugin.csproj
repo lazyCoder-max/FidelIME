@@ -11,9 +11,4 @@
     <PackageReference Include="SharpHook" Version="3.1.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="InputManager\Linux\" />
-    <Folder Include="InputManager\MacOSX\" />
-  </ItemGroup>
-
 </Project>

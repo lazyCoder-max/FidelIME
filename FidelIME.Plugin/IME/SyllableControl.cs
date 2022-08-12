@@ -15,6 +15,7 @@ namespace FidelIME.Plugin.IME
         private int inputPointer = 0;
 
         public bool IsPerformClean { get; set; }
+        public NumberContol NumberControl { get; set; }
 
         /// <summary>
         /// Constractor
@@ -22,6 +23,13 @@ namespace FidelIME.Plugin.IME
         /// <param name="editor"></param>
         public SyllableControl()
         {
+            NumberControl = new NumberContol();
+        }
+        public bool IsNumber(char value)
+        {
+            if (char.IsNumber(value))
+                return true;
+            return false;
         }
 
         /// <summary>
@@ -1162,7 +1170,12 @@ namespace FidelIME.Plugin.IME
             string result = null;
             foreach (var val in values)
             {
-                result += GetEthiopic(input);
+                if(IsAllNumber(val))
+                {
+                    result += NumberControl.GetNumber(val);
+                }
+                else
+                    result += GetEthiopic(input);
             }
 
             return result;
@@ -1173,6 +1186,21 @@ namespace FidelIME.Plugin.IME
         /// </summary>
         /// <returns></returns>
         public string[] ConvertInput(string value)
+        {
+            
+            List<string> result = new();
+            if(IsAllNumber(value))
+            {
+                result = ConvertNumber(value);
+            }
+            else
+            {
+                result = ConvertSyllable(value);
+            }
+            return result.ToArray();
+        }
+
+        private List<string> ConvertSyllable(string value)
         {
             List<string> result = new();
             int i = 0;
@@ -1191,7 +1219,13 @@ namespace FidelIME.Plugin.IME
                 i = 0;
                 result.Add($"{syllable}");
             }
-            return result.ToArray();
+            return result;
+        }
+        private List<string> ConvertNumber(string value)
+        {
+            List<string> result = new();
+            result.Add(value);
+            return result;
         }
         private string GetEthiopic(string value)
         {
@@ -1219,38 +1253,52 @@ namespace FidelIME.Plugin.IME
         private string CheckInput(char input)
         {
             var result = "";
-            if (inputPointer >= 1)
+            if(IsNumber(input) && IsNumber(inputManager[0]))
             {
-                if (!IsVowel(input) && input != '2' && (inputManager[1] != '2' && input != 'w'))
+                if (inputPointer > 2 || (inputPointer >= 1 && input != '0'))
                 {
                     ResetInputManager();
-                    inputManager[inputPointer] = input;
-                    inputPointer++;
                 }
-                else if (!IsVowel(inputManager[0]))
+                inputManager[input=='0'? inputPointer: 0] = input;
+                IsPerformClean = input == '0'? true : false ;
+                inputPointer++;
+            }
+            else
+            {
+                if (inputPointer >= 1)
                 {
-                    inputManager[inputPointer] = input;
-                    if(IsAllVowel(input))
-                    {
-                        result = Join();
-                        inputPointer++;
-                        IsPerformClean = true;
-                    }
-                    else
+                    if (!IsVowel(input) && input != '2' && (inputManager[1] != '2' && input != 'w'))
                     {
                         ResetInputManager();
                         inputManager[inputPointer] = input;
                         inputPointer++;
                     }
-                }
+                    else if (!IsVowel(inputManager[0]))
+                    {
+                        inputManager[inputPointer] = input;
+                        if (IsAllVowel(input))
+                        {
+                            result = Join();
+                            inputPointer++;
+                            IsPerformClean = true;
+                        }
+                        else
+                        {
+                            ResetInputManager();
+                            inputManager[inputPointer] = input;
+                            inputPointer++;
+                        }
+                    }
 
+                }
+                else
+                {
+                    inputManager[inputPointer] = input;
+                    inputPointer++;
+                    IsPerformClean = false;
+                }
             }
-            else
-            {
-                inputManager[inputPointer] = input;
-                inputPointer++;
-                IsPerformClean = false;
-            }
+            
             return Join();
         }
         public void ResetInputManager()
@@ -1274,6 +1322,12 @@ namespace FidelIME.Plugin.IME
                     return true;
             }
             return false;
+        }
+        private bool IsAllNumber(string value)
+        {
+            var val = value.ToCharArray();
+            var result = val.All<char>(x => char.IsNumber(x));
+            return result;
         }
         private string Join()
         {
