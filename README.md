@@ -1,10 +1,21 @@
-<p align="center"><img src="https://github.com/lazyCoder-max/FidelIME/blob/master/FidelIME/logo.png" width="100" height="100"></p>
-<h1 align="center">Fidel IME</h1>
-<div align="center">
-  <strong>:high_brightness: Cross-Platform Ethiopic Input Method Editor :crescent_moon:</strong><br>
-  A simple and elegant open-source input method editor that focused on speed and usability.<br>
-  <sub>Available for Linux, macOS and Windows.</sub>
-</div>
-<div align="center">
- 
-</div>
+<p align="center"><img src="https://github.com/lazyCoder-max/FidelIME/blob/master/FidelIME.Fidel/Assets/logo.ico" width="100" height="100"></p>
+
+# Fidel IME
+
+A simple and elegant open-source input method editor that focused on speed and usability.
+
+## Technologies Used
+### Development Tools & Design Patterns
+* MVVM
+* C#
+* Avalonia UI
+* .NET Framework 6.0
+## License
+
+Cross-Platform Ethiopic Input Method Editor
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+
+

@@ -37,7 +37,6 @@ namespace FidelIME.Plugin.InputManager
         /// </summary>
         public async Task StartHookAsync()
         {
-            Simulator = new InputSimulator();
             syllableControl = new SyllableControl();
             switch (Environment.OSVersion.Platform)
             {
@@ -47,6 +46,7 @@ namespace FidelIME.Plugin.InputManager
                     break;
                 case PlatformID.Win32NT:
                     //here
+                    Simulator = new InputSimulator();
                     hook = new TaskPoolGlobalHook();
                     hook.HookEnabled += Hook_HookEnabled;
                     if (!hook.IsRunning)
